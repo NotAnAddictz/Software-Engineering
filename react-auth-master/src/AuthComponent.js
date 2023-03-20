@@ -109,11 +109,12 @@ export default function AuthComponent() {
   }
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_GMAPS,
+    libraries: ['places'],
   })
   if (!isLoaded) {
     return <SkeletonText />
   }
-
+  
 
   return (
     <Flex
@@ -143,18 +144,24 @@ export default function AuthComponent() {
         >
           <HStack spacing={2} justifyContent='space-between'>
             <Box flexGrow={1}>
-              {/* <Autocomplete> */}
-              <Input type='text' placeholder='Origin' ref={originRef} />
-              {/* </Autocomplete> */}
+            <Autocomplete
+              options={{
+                componentRestrictions: { country: "sg" },
+              }}>
+                <Input type='text' placeholder='Origin' ref={originRef} />
+              </Autocomplete>
             </Box>
             <Box flexGrow={1}>
-              {/* <Autocomplete> */}
-              <Input
-                type='text'
-                placeholder='Destination'
-                ref={destiantionRef}
-              />
-              {/* </Autocomplete> */}
+            <Autocomplete
+              options={{
+                componentRestrictions: { country: "sg" },
+              }}>
+                <Input
+                  type='text'
+                  placeholder='Destination'
+                  ref={destiantionRef}
+                />
+              </Autocomplete>
             </Box>
 
             <ButtonGroup>
@@ -199,7 +206,7 @@ export default function AuthComponent() {
             <DirectionsRenderer directions={directionsResponse} />
           )}
         </GoogleMap>
-        
+
       </Box>
 
     </Flex >
