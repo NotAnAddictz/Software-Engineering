@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 import axios from "axios";
 
 export default function Register() {
   // initial state
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [usertype, setUsertype] = useState("");
   const [register, setRegister] = useState(false);
 
   const handleSubmit = (e) => {
@@ -19,6 +22,7 @@ export default function Register() {
       data: {
         email,
         password,
+        usertype,
       },
     };
 
@@ -59,7 +63,13 @@ export default function Register() {
             placeholder="Password"
           />
         </Form.Group>
-
+        <DropdownButton id="dropdown-basic-button" title="User Type">
+          <Dropdown.Item onClick={(e) => setUsertype("Standard")}>Standard</Dropdown.Item>
+          <Dropdown.Item onClick={(e) => setUsertype("Senior")}>Senior</Dropdown.Item>
+          <Dropdown.Item onClick={(e) => setUsertype("Children")}>Children</Dropdown.Item>
+          <Dropdown.Item onClick={(e) => setUsertype("WorkFare Concession")}>WorkFare Concession</Dropdown.Item>
+          <Dropdown.Item onClick={(e) => setUsertype("Person With Disability")}>Person With Disability</Dropdown.Item>
+        </DropdownButton>
         {/* submit button */}
         <Button
           variant="primary"

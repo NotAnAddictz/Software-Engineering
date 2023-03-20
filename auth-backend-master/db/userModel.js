@@ -15,6 +15,11 @@ const UserSchema = new mongoose.Schema({
     required: [true, "Please provide a password!"],
     unique: false,
   },
+  usertype: {
+    type: String,
+    required: [true, "Please provide a user type!"],
+    unique: false,
+  },
 });
 
 // export UserSchema
