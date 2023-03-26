@@ -36,6 +36,12 @@ export default function AuthComponent() {
   const [directionsResponse, setDirectionsResponse] = useState(null)
   const [distance, setDistance] = useState('')
   const [duration, setDuration] = useState('')
+  const [fare, setFare] = useState('')
+  const [map_public, setMapPublic] = useState(/** @type google.maps.Map */(null))
+  const [directionsResponse_public, setDirectionsResponsePublic] = useState(null)
+  const [distance_public, setDistancePublic] = useState('')
+  const [duration_public, setDurationPublic] = useState('')
+  const [fare_public, setFarePublic] = useState('')
 
   /** @type React.MutableRefObject<HTMLInputElement> */
   const originRef = useRef()
@@ -75,6 +81,11 @@ export default function AuthComponent() {
     window.location.href = "/";
   }
 
+  async function calculateRoutes() {
+    calculateRoute()
+    calculateRoute_PublicTrans()
+  }
+
   async function calculateRoute() {
     if (originRef.current.value === '' || destiantionRef.current.value === '') {
       return
@@ -90,12 +101,36 @@ export default function AuthComponent() {
     setDirectionsResponse(results)
     setDistance(results.routes[0].legs[0].distance.text)
     setDuration(results.routes[0].legs[0].duration.text)
+    setFare(results.routes[0].fare)
+  }
+
+  async function calculateRoute_PublicTrans() {
+    if (originRef.current.value === '' || destiantionRef.current.value === '') {
+      return
+    }
+    // eslint-disable-next-line no-undef
+    const directionsService = new google.maps.DirectionsService()
+    const results = await directionsService.route({
+      origin: originRef.current.value,
+      destination: destiantionRef.current.value,
+      // eslint-disable-next-line no-undef
+      travelMode: google.maps.TravelMode.TRANSIT,
+    })
+    setDirectionsResponsePublic(results)
+    setDistancePublic(results.routes[0].legs[0].distance.text)
+    setDurationPublic(results.routes[0].legs[0].duration.text)
+    setFarePublic(results.routes[0].legs[0].steps[0].instructions)
   }
 
   function clearRoute() {
     setDirectionsResponse(null)
     setDistance('')
     setDuration('')
+    setFare('')
+    setDirectionsResponsePublic(null)
+    setDistancePublic('')
+    setDurationPublic('')
+    setFarePublic('')
     originRef.current.value = ''
     destiantionRef.current.value = ''
   }
@@ -114,7 +149,7 @@ export default function AuthComponent() {
   if (!isLoaded) {
     return <SkeletonText />
   }
-  
+
 
   return (
     <Flex
@@ -144,18 +179,18 @@ export default function AuthComponent() {
         >
           <HStack spacing={2} justifyContent='space-between'>
             <Box flexGrow={1}>
-            <Autocomplete
-              options={{
-                componentRestrictions: { country: "sg" },
-              }}>
+              <Autocomplete
+                options={{
+                  componentRestrictions: { country: "sg" },
+                }}>
                 <Input type='text' placeholder='Origin' ref={originRef} />
               </Autocomplete>
             </Box>
             <Box flexGrow={1}>
-            <Autocomplete
-              options={{
-                componentRestrictions: { country: "sg" },
-              }}>
+              <Autocomplete
+                options={{
+                  componentRestrictions: { country: "sg" },
+                }}>
                 <Input
                   type='text'
                   placeholder='Destination'
@@ -165,7 +200,7 @@ export default function AuthComponent() {
             </Box>
 
             <ButtonGroup>
-              <Button colorScheme='pink' type='submit' onClick={calculateRoute}>
+              <Button colorScheme='pink' type='submit' onClick={calculateRoutes}>
                 Calculate Route
               </Button>
               <IconButton
@@ -178,6 +213,7 @@ export default function AuthComponent() {
           <HStack spacing={4} mt={4} justifyContent='space-between'>
             <Text>Distance: {distance} </Text>
             <Text>Duration: {duration} </Text>
+            <Text>Fare: {fare} </Text>
             <IconButton
               aria-label='center back'
               icon={<FaLocationArrow />}
@@ -185,99 +221,68 @@ export default function AuthComponent() {
               onClick={() => {
                 map.panTo(center)
                 map.setZoom(12)
+                map_public.panTo(center)
+                map_public.setZoom(12)
               }}
             />
           </HStack>
+          <br />
+          <HStack spacing={4} mt={4} justifyContent='space-between'>
+            <Text>Distance: {distance_public} </Text>
+            <Text>Duration: {duration_public} </Text>
+            <Text>Fare: {fare_public} </Text>
+          </HStack>
         </Box>
-        <GoogleMap
-          center={center}
-          zoom={12}
-          mapContainerStyle={{ width: '100%', height: '100%' }}
-          options={{
-            zoomControl: false,
-            streetViewControl: false,
-            mapTypeControl: false,
-            fullscreenControl: false,
-          }}
-          onLoad={map => setMap(map)}
+        <Flex
+          position='absolute'
+          flexDirection='row'
+          alignItems='center'
+          h='35vh'
+          w='70vw'
         >
-          {/* <Marker position={center} /> */}
-          {directionsResponse && (
-            <DirectionsRenderer directions={directionsResponse} />
-          )}
-        </GoogleMap>
-
+            <GoogleMap
+              center={center}
+              zoom={12}
+              mapContainerStyle={{ width: '49%', height: '100%' }}
+              options={{
+                zoomControl: false,
+                streetViewControl: false,
+                mapTypeControl: false,
+                fullscreenControl: false,
+              }}
+              onLoad={map => setMap(map)}
+            >
+              {/* <Marker position={center} /> */}
+              {directionsResponse && (
+                <DirectionsRenderer directions={directionsResponse} />
+              )}
+              {directionsResponse_public && (
+                <DirectionsRenderer directions={directionsResponse_public} />
+              )}
+            </GoogleMap>
+            {/* <br/> */}
+            <GoogleMap
+              center={center}
+              zoom={12}
+              mapContainerStyle={{ width: '49%', height: '100%' }}
+              options={{
+                zoomControl: false,
+                streetViewControl: false,
+                mapTypeControl: false,
+                fullscreenControl: false,
+              }}
+              onLoad={map => setMapPublic(map)}
+            >
+              {/* <Marker position={center} /> */}
+              {directionsResponse_public && (
+                <DirectionsRenderer directions={directionsResponse_public} />
+              )}
+            </GoogleMap>
+          <br />
+          <br />
+        </Flex >
       </Box>
 
     </Flex >
-    //  <Box position={'absolute'} left={0} right = {0} h = '100%' w = '100%'>
-
-
-    //  <div className="text-center">
-    //    <h1>Auth Component</h1>
-
-    //    {/* displaying our message from our API call */}
-    //    <h3 className="text-danger">{message}</h3>
-
-    //    {/* logout */}
-    //    <Button type="submit" variant="danger" onClick={() => logout()}>
-    //      Logout
-    //    </Button>
-    //    <br/>
-
-
-    //    <div className="map">
-    //      {/* <Button type="submit" variant="danger" onClick={() => loadmap()}>
-    //        Load Map
-    //      </Button> */}
-
-
-
-    //    </div>
-    //    <div className="d-flex align-items-stretch">
-    //      <GoogleMap center ={center} zoom = {10} mapContainerStyle = {{width : '100%', height : '200'}} >
-
-    //      </GoogleMap>
-    //      <Container>
-    //    <Row>
-    //  <Form onSubmit={(e) => handleSubmit(e)}>
-    //    {/* email */}
-    //    <Form.Group controlId="formBasicEmail">
-    //      <Form.Label>Current Location</Form.Label>
-    //      <Form.Control
-    //        type="email"
-    //        name="email"
-
-    //        placeholder="Enter Starting Location"
-    //      />
-    //    </Form.Group>
-
-    //    {/* password */}
-    //    <Form.Group controlId="formBasicPassword">
-    //      <Form.Label>Destination</Form.Label>
-    //      <Form.Control
-    //        type="password"
-    //        name="password"
-
-    //        placeholder="Enter Destination"
-    //      />
-    //    </Form.Group>
-    //    </Form>
-    //    {/* submit button */}
-    //    <Button
-    //      variant="primary"
-    //      type="submit"
-    //      onClick={(e) => handleSubmit(e)}
-    //    >
-    //      Locate
-    //   </Button>
-    //    </Row>
-
-
-    //  </Container>
-    //   </div>
-
-    //  </div>
-    //  </Box>
   );
 }
