@@ -1,0 +1,747 @@
+{
+    "help": "https://data.gov.sg/api/3/action/help_show?name=datastore_search",
+    "success": true,
+    "result": {
+        "resource_id": "663fe7b6-23c2-4a40-b77a-a2fa2114beff",
+        "fields": [
+            {
+                "type": "int4",
+                "id": "_id"
+            },
+            {
+                "type": "text",
+                "id": "fare_type"
+            },
+            {
+                "type": "text",
+                "id": "applicable_time"
+            },
+            {
+                "type": "text",
+                "id": "distance"
+            },
+            {
+                "type": "numeric",
+                "id": "fare_per_ride"
+            },
+            {
+                "type": "int8",
+                "id": "_full_count"
+            },
+            {
+                "type": "float4",
+                "id": "rank"
+            }
+        ],
+        "q": "Workfare",
+        "records": [
+            {
+                "distance": "Up to 3.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "20",
+                "_id": 235
+            },
+            {
+                "distance": "3.3 km - 4.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "28",
+                "_id": 236
+            },
+            {
+                "distance": "4.3 km - 5.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "36",
+                "_id": 237
+            },
+            {
+                "distance": "5.3 km - 6.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "44",
+                "_id": 238
+            },
+            {
+                "distance": "6.3 km - 7.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "51",
+                "_id": 239
+            },
+            {
+                "distance": "7.3 km - 8.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "57",
+                "_id": 240
+            },
+            {
+                "distance": "8.3 km - 9.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "63",
+                "_id": 241
+            },
+            {
+                "distance": "9.3 km - 10.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "66",
+                "_id": 242
+            },
+            {
+                "distance": "10.3 km - 11.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "69",
+                "_id": 243
+            },
+            {
+                "distance": "11.3 km - 12.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "72",
+                "_id": 244
+            },
+            {
+                "distance": "12.3 km - 13.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "75",
+                "_id": 245
+            },
+            {
+                "distance": "13.3 km - 14.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "78",
+                "_id": 246
+            },
+            {
+                "distance": "14.3 km - 15.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "81",
+                "_id": 247
+            },
+            {
+                "distance": "15.3 km - 16.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "84",
+                "_id": 248
+            },
+            {
+                "distance": "16.3 km - 17.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "87",
+                "_id": 249
+            },
+            {
+                "distance": "17.3 km - 18.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "90",
+                "_id": 250
+            },
+            {
+                "distance": "18.3 km - 19.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "93",
+                "_id": 251
+            },
+            {
+                "distance": "28.3 km - 29.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "162",
+                "_id": 300
+            },
+            {
+                "distance": "19.3 km - 20.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "96",
+                "_id": 252
+            },
+            {
+                "distance": "20.3 km - 21.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "99",
+                "_id": 253
+            },
+            {
+                "distance": "21.3 km - 22.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "102",
+                "_id": 254
+            },
+            {
+                "distance": "22.3 km - 23.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "105",
+                "_id": 255
+            },
+            {
+                "distance": "23.3 km - 24.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "107",
+                "_id": 256
+            },
+            {
+                "distance": "24.3 km - 25.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "108",
+                "_id": 257
+            },
+            {
+                "distance": "25.3 km - 26.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "109",
+                "_id": 258
+            },
+            {
+                "distance": "26.3 km - 27.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "110",
+                "_id": 259
+            },
+            {
+                "distance": "27.3 km - 28.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "111",
+                "_id": 260
+            },
+            {
+                "distance": "28.3 km - 29.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "112",
+                "_id": 261
+            },
+            {
+                "distance": "29.3 km - 30.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "113",
+                "_id": 262
+            },
+            {
+                "distance": "30.3 km - 31.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "114",
+                "_id": 263
+            },
+            {
+                "distance": "31.3 km - 32.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "115",
+                "_id": 264
+            },
+            {
+                "distance": "32.3 km - 33.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "116",
+                "_id": 265
+            },
+            {
+                "distance": "33.3 km - 34.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "117",
+                "_id": 266
+            },
+            {
+                "distance": "34.3 km - 35.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "118",
+                "_id": 267
+            },
+            {
+                "distance": "35.3 km - 36.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "119",
+                "_id": 268
+            },
+            {
+                "distance": "36.3 km - 37.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "120",
+                "_id": 269
+            },
+            {
+                "distance": "37.3 km - 38.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "121",
+                "_id": 270
+            },
+            {
+                "distance": "38.3 km - 39.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "122",
+                "_id": 271
+            },
+            {
+                "distance": "39.3 km - 40.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "123",
+                "_id": 272
+            },
+            {
+                "distance": "Over 40.2 km",
+                "_full_count": "78",
+                "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "124",
+                "_id": 273
+            },
+            {
+                "distance": "Up to 3.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "70",
+                "_id": 274
+            },
+            {
+                "distance": "3.3 km - 4.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "78",
+                "_id": 275
+            },
+            {
+                "distance": "4.3 km - 5.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "86",
+                "_id": 276
+            },
+            {
+                "distance": "5.3 km - 6.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "94",
+                "_id": 277
+            },
+            {
+                "distance": "6.3 km - 7.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "101",
+                "_id": 278
+            },
+            {
+                "distance": "7.3 km - 8.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "107",
+                "_id": 279
+            },
+            {
+                "distance": "8.3 km - 9.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "113",
+                "_id": 280
+            },
+            {
+                "distance": "9.3 km - 10.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "116",
+                "_id": 281
+            },
+            {
+                "distance": "10.3 km - 11.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "119",
+                "_id": 282
+            },
+            {
+                "distance": "11.3 km - 12.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "122",
+                "_id": 283
+            },
+            {
+                "distance": "12.3 km - 13.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "125",
+                "_id": 284
+            },
+            {
+                "distance": "13.3 km - 14.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "128",
+                "_id": 285
+            },
+            {
+                "distance": "14.3 km - 15.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "131",
+                "_id": 286
+            },
+            {
+                "distance": "15.3 km - 16.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "134",
+                "_id": 287
+            },
+            {
+                "distance": "16.3 km - 17.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "137",
+                "_id": 288
+            },
+            {
+                "distance": "17.3 km - 18.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "140",
+                "_id": 289
+            },
+            {
+                "distance": "18.3 km - 19.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "143",
+                "_id": 290
+            },
+            {
+                "distance": "19.3 km - 20.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "146",
+                "_id": 291
+            },
+            {
+                "distance": "20.3 km - 21.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "149",
+                "_id": 292
+            },
+            {
+                "distance": "21.3 km - 22.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "152",
+                "_id": 293
+            },
+            {
+                "distance": "22.3 km - 23.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "155",
+                "_id": 294
+            },
+            {
+                "distance": "23.3 km - 24.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "157",
+                "_id": 295
+            },
+            {
+                "distance": "24.3 km - 25.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "158",
+                "_id": 296
+            },
+            {
+                "distance": "25.3 km - 26.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "159",
+                "_id": 297
+            },
+            {
+                "distance": "26.3 km - 27.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "160",
+                "_id": 298
+            },
+            {
+                "distance": "27.3 km - 28.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "161",
+                "_id": 299
+            },
+            {
+                "distance": "29.3 km - 30.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "163",
+                "_id": 301
+            },
+            {
+                "distance": "30.3 km - 31.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "164",
+                "_id": 302
+            },
+            {
+                "distance": "31.3 km - 32.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "165",
+                "_id": 303
+            },
+            {
+                "distance": "32.3 km - 33.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "166",
+                "_id": 304
+            },
+            {
+                "distance": "33.3 km - 34.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "167",
+                "_id": 305
+            },
+            {
+                "distance": "34.3 km - 35.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "168",
+                "_id": 306
+            },
+            {
+                "distance": "35.3 km - 36.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "169",
+                "_id": 307
+            },
+            {
+                "distance": "36.3 km - 37.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "170",
+                "_id": 308
+            },
+            {
+                "distance": "37.3 km - 38.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "171",
+                "_id": 309
+            },
+            {
+                "distance": "38.3 km - 39.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "172",
+                "_id": 310
+            },
+            {
+                "distance": "39.3 km - 40.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "173",
+                "_id": 311
+            },
+            {
+                "distance": "Over 40.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0,
+                "fare_type": "Workfare transport concession card fare",
+                "fare_per_ride": "174",
+                "_id": 312
+            }
+        ],
+        "_links": {
+            "start": "/api/action/datastore_search?q=Workfare&resource_id=663fe7b6-23c2-4a40-b77a-a2fa2114beff",
+            "next": "/api/action/datastore_search?q=Workfare&offset=100&resource_id=663fe7b6-23c2-4a40-b77a-a2fa2114beff"
+        },
+        "total": 78
+    }
+}

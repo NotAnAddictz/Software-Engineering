@@ -4,8 +4,10 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
-export default function Login() {
+export default function Login({setUserData}) {
+
   // initial state
+  const [usertype, setUsertype] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
@@ -32,15 +34,15 @@ export default function Login() {
           path: "/",
         });
         // redirect user to the auth page
+        setUsertype(result.data.usertype)
+        setUserData(result.data.usertype)
         window.location.href = "/auth";
-
         setLogin(true);
       })
       .catch((error) => {
         error = new Error();
       });
   };
-
   return (
     <>
       <h2>Login</h2>
