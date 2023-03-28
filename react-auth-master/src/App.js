@@ -26,7 +26,6 @@ function App() {
       </Row>
 
       {/* create routes here */}
-        <p className="text-danger">You Are Not Logged in{userdata}</p>
       <Routes>
         <Route exact path="/" element={<Account setUserData={setUserData}/>} /> 
         <Route exact path="/free" element={<FreeComponent/>}/>

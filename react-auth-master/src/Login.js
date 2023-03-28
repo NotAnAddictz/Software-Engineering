@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
+import { redirect , Route} from "react-router-dom";
+import AuthComponent from "./AuthComponent";
+
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
@@ -36,14 +39,18 @@ export default function Login({setUserData}) {
         // redirect user to the auth page
         setUsertype(result.data.usertype)
         setUserData(result.data.usertype)
+        localStorage.setItem("user", result.data.usertype);
         window.location.href = "/auth";
         setLogin(true);
+
       })
       .catch((error) => {
         error = new Error();
       });
+
   };
   return (
+    
     <>
       <h2>Login</h2>
       <Form onSubmit={(e) => handleSubmit(e)}>
@@ -86,6 +93,7 @@ export default function Login({setUserData}) {
         ) : (
           <p className="text-danger">You Are Not Logged in</p>
         )}
+        
       </Form>
     </>
   );

@@ -28,13 +28,14 @@ import {
 import { FaLocationArrow, FaTimes } from 'react-icons/fa'
 
 const center = { lat: 1.3500883722383386, lng: 103.81306869057929 }
-
+const places = ['places']
 const cookies = new Cookies();
 // get token generated on login
 const token = cookies.get("TOKEN");
 
-export default function AuthComponent({userdata}) {
-  const newuser = userdata;
+export default function AuthComponent() {
+  const userdata = localStorage.getItem("user");
+
   const [map, setMap] = useState(/** @type google.maps.Map */(null))
   const [directionsResponse, setDirectionsResponse] = useState(null)
   const [distance, setDistance] = useState('')
@@ -208,11 +209,12 @@ export default function AuthComponent({userdata}) {
     // destroy the cookie
     cookies.remove("TOKEN", { path: "/" });
     // redirect user to the landing page
+    localStorage.removeItem("user")
     window.location.href = "/";
   }
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_GMAPS,
-    libraries: process.env.LIBRARY,
+    libraries: places,
   })
   if (!isLoaded) {
     return <SkeletonText />
@@ -230,7 +232,6 @@ export default function AuthComponent({userdata}) {
       <Box position='absolute' left={0} top={0} h='70vh' w='70vw'>
         {/* logout */}
         <div className="text-center">
-        <p className="text-danger">You Are Not Logged in {userdata}</p>
 
           <Button type="submit" variant="danger" onClick={() => logout()}>
             Logout
@@ -341,7 +342,7 @@ export default function AuthComponent({userdata}) {
         <HStack spacing={4} mt={4} justifyContent='space-between'>
           <Text>Distance: {distance_public} </Text>
           <Text>Duration: {duration_public} </Text>
-          <Text>Fare: {newuser} </Text>
+          <Text>Fare: {userdata} </Text>
         </HStack>
       </Popup>
     </Flex >
