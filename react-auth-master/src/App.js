@@ -5,34 +5,40 @@ import Account from "./Account";
 import FreeComponent from "./FreeComponent";
 import AuthComponent from "./AuthComponent";
 import ProtectedRoutes from "./ProtectedRoutes";
-var temp;
+import {Flex} from '@chakra-ui/react'
+
+import companyLogo from './assets/logo.jpg';
 
 function App() {
   const [userdata, setUserData] = useState(" ")
   return (
-    <Container>
+    <>
       <Row>
         <Col className="text-center">
-          
-          <h1>CoC</h1>
-
-          <section id="navigation">
+          <Flex
+            position='relative'
+            flexDirection='column'
+            alignItems='center'
+          >
+            <img src={companyLogo} style={{ height: '100px', alignSelf: 'center' }} />
+          </Flex>
+          {/* <section id="navigation">
             <a href="/">Home</a>
-            {/* <a href="/free">Free Component</a> */}
-            {/* <a href="/auth">Auth Component</a> */}
-          </section>
+            <a href="/free">Free Component</a>
+            <a href="/auth">Auth Component</a>
+          </section> */}
 
         </Col>
       </Row>
 
       {/* create routes here */}
       <Routes>
-        <Route exact path="/" element={<Account setUserData={setUserData}/>} /> 
-        <Route exact path="/free" element={<FreeComponent/>}/>
-        <Route exact path="/auth" element={<AuthComponent userdata={userdata}/>} />
+        <Route exact path="/" element={<Account setUserData={setUserData} />} />
+        <Route exact path="/free" element={<FreeComponent />} />
+        <Route exact path="/auth" element={<AuthComponent userdata={userdata} />} />
       </Routes>
-    </Container>
-    
+    </>
+
   );
 }
 

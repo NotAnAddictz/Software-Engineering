@@ -34,10 +34,11 @@ const cookies = new Cookies();
 const token = cookies.get("TOKEN");
 
 export default function AuthComponent() {
-  
+
   const userdata = localStorage.getItem("user");
   const [time_hour, setHour] = useState("")
   const [time_min, setMin] = useState("")
+  const [records, setRecords] = useState({})
   const [map, setMap] = useState(/** @type google.maps.Map */(null))
   const [directionsResponse, setDirectionsResponse] = useState(null)
   const [distance, setDistance] = useState('')
@@ -51,7 +52,6 @@ export default function AuthComponent() {
   const [fare_public, setFarePublic] = useState('')
   const [directions_public, setDirectionsPublic] = useState('')
   const [usertypequery, setUserTypeQuery] = useState('')
-
   /** @type React.MutableRefObject<HTMLInputElement> */
   const originRef = useRef()
   /** @type React.MutableRefObject<HTMLInputElement> */
@@ -80,27 +80,31 @@ export default function AuthComponent() {
       },
     };
 
-   
+
     // make the API call
     axios(configuration)
       .then((result) => {
         // assign the message in our result to the message we initialized above
         setMessage(result.data.message);
+        setUserTypeQuery(userdata)
+
       })
       .catch((error) => {
         error = new Error();
       });
   }, []);
 
-  const getfares = () =>{
+  const getfares = () => {
     axios
-    .get('https://data.gov.sg/api/action/datastore_search?resource_id=663fe7b6-23c2-4a40-b77a-a2fa2114beff&q='+usertypequery)
-    .then((response) => {
-      console.log(response.data.result.total)
-      console.log(userdata)})
-    .catch((error) => {
-      console.log(error);
-    });
+      .get('https://data.gov.sg/api/action/datastore_search?resource_id=663fe7b6-23c2-4a40-b77a-a2fa2114beff&q=' + usertypequery)
+      .then((response) => {
+        console.log(response.data.result.total)
+        setRecords(response.data.result.records)
+        console.log(userdata)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   function strip(html) {
@@ -120,11 +124,11 @@ export default function AuthComponent() {
 
     setHour(today.getHours());
     setMin(today.getMinutes());
+    getfares();
     calculateRoute()
     calculateRoute_PublicTrans()
     setShow(true);
-    setUserTypeQuery(userdata)
-    getfares();
+
   }
 
   async function calculateRoute() {
@@ -169,6 +173,7 @@ export default function AuthComponent() {
   }
 
   async function calculateRoute_PublicTrans() {
+    setFarePublic(0.0)
     if (originRef.current.value === '' || destiantionRef.current.value === '') {
       return
     }
@@ -185,13 +190,38 @@ export default function AuthComponent() {
     setDurationPublic(results.routes[0].legs[0].duration.text)
     var i;
     var prev = "";
+    var sum = 0.0;
     for (i = 0; i < results.routes[0].legs[0].steps.length; i++) {
       if (results.routes[0].legs[0].steps[i].transit !== undefined) {
         prev = `${prev} ${results.routes[0].legs[0].steps[i].transit.line.vehicle.name}`
+        var x;
+        console.log(results.routes[0].legs[0].steps[i].distance.text)
+
+        // if(time_hour<7 && time_min<45){
+        if (records.length !== 0) {
+
+          for (x = 0; x < records.length; x++) {
+            var lastSeven = records[x].distance.substr(records[x].distance.length - 7);
+            var firstfour = records[x].distance.substr(0, 3);
+            var distance_record = parseFloat(lastSeven);
+            var distance_lrecord = parseFloat(firstfour);
+            if (isNaN(distance_lrecord)) {
+              distance_lrecord = 0.0
+            }
+            if (distance_record > parseFloat(results.routes[0].legs[0].steps[i].distance.text) && distance_lrecord < parseFloat(results.routes[0].legs[0].steps[i].distance.text)) {
+
+              console.log(records[x].fare_per_ride)
+              sum += parseFloat(records[x].fare_per_ride)
+              // console.log("fare"+fare_public)
+              break
+            }
+          }
+        }
+        // }
       }
     }
+    setFarePublic(sum / 100)
     setDirectionsPublic(prev)
-    setFarePublic()
   }
 
   function clearRoute() {
@@ -229,113 +259,117 @@ export default function AuthComponent() {
 
   return (
     <Flex
-      position='absolute'
-      flexDirection='row'
+      position='relative'
+      flexDirection='column'
       alignItems='center'
-      h='70vh'
-      w='70vw'
+      h='100vh'
+      w='100vw'
     >
-      <Box position='absolute' left={0} top={0} h='70vh' w='70vw'>
-        {/* logout */}
-        <div className="text-center">
+      {/* <Box position='absolute' left={0} top={0} h='70vh' w='70vw'> */}
+      {/* logout */}
+      {/* <div className="text-center">
 
-          <Button type="submit" variant="danger" onClick={() => logout()}>
-            Logout
-          </Button>
-          <br />
-        </div>
-        {/* Google Map Box */}
-        <Box
-          p={4}
-          borderRadius='lg'
-          m={4}
-          bgColor='white'
-          shadow='base'
-          minW='container.md'
-          zIndex='1'
-        >
-          <HStack spacing={2} justifyContent='space-between'>
-            <Box flexGrow={1}>
-              <Autocomplete
-                options={{
-                  componentRestrictions: { country: "sg" },
-                }}>
-                <Input type='text' placeholder='Origin' ref={originRef} />
-              </Autocomplete>
-            </Box>
-            <Box flexGrow={1}>
-              <Autocomplete
-                options={{
-                  componentRestrictions: { country: "sg" },
-                }}>
-                <Input
-                  type='text'
-                  placeholder='Destination'
-                  ref={destiantionRef}
-                />
-              </Autocomplete>
-            </Box>
+        <Button type="submit" variant="danger" onClick={() => logout()}>
+          Logout
+        </Button>
+        <br />
+      </div> */}
 
-            <ButtonGroup>
-              <Button colorScheme='pink' type='submit' onClick={calculateRoutes}>
-                Calculate Route
-              </Button>
-              <IconButton
-                aria-label='center back'
-                icon={<FaTimes />}
-                onClick={clearRoute}
-              />
-            </ButtonGroup>
-          </HStack>
-          <HStack spacing={4} mt={4} justifyContent='space-between'>
-            <IconButton
-              aria-label='center back'
-              icon={<FaLocationArrow />}
-              isRound
-              onClick={() => {
-                map.panTo(center)
-                map.setZoom(12)
-                map_public.panTo(center)
-                map_public.setZoom(12)
-              }}
-            />
-
-          </HStack>
-          <br />
-        </Box>
-        <Flex
+      {/* <Flex
           position='absolute'
           flexDirection='row'
           alignItems='center'
           h='35vh'
           w='70vw'
           ref={anchor}
+        > */}
+      {/* Google Map Box */}
+      <Box position='absolute' left={0} top={0} h='100%' w='100%'>
+        <GoogleMap
+          center={center}
+          zoom={12}
+          mapContainerStyle={{ width: '100%', height: '70%' }}
+          options={{
+            zoomControl: false,
+            streetViewControl: false,
+            mapTypeControl: false,
+            fullscreenControl: false,
+          }}
+          onLoad={map => setMap(map)}
         >
-          <GoogleMap
-            center={center}
-            zoom={12}
-            mapContainerStyle={{ width: '100%', height: '100%' }}
-            options={{
-              zoomControl: false,
-              streetViewControl: false,
-              mapTypeControl: false,
-              fullscreenControl: false,
-            }}
-            onLoad={map => setMap(map)}
-          >
-            {/* <Marker position={center} /> */}
-            {directionsResponse && (
-              <DirectionsRenderer directions={directionsResponse} />
-            )}
-            {directionsResponse_public && (
-              <DirectionsRenderer directions={directionsResponse_public} />
-            )}
-          </GoogleMap>
-          {/* <br/> */}
-          <br />
-          <br />
-        </Flex >
+          {/* <Marker position={center} /> */}
+          {directionsResponse && (
+            <DirectionsRenderer directions={directionsResponse} />
+          )}
+          {directionsResponse_public && (
+            <DirectionsRenderer directions={directionsResponse_public} />
+          )}
+        </GoogleMap>
+        {/* <br/> */}
+        <br ref={anchor} />
+        <br />
       </Box>
+      <Box
+        p={4}
+        borderRadius='lg'
+        m={3}
+        bgColor='white'
+        shadow='base'
+        minW='container.md'
+        zIndex='1'
+      >
+        <HStack spacing={2} justifyContent='space-between'>
+          <Box flexGrow={1}>
+            <Autocomplete
+              options={{
+                componentRestrictions: { country: "sg" },
+              }}>
+              <Input type='text' placeholder='Origin' ref={originRef} />
+            </Autocomplete>
+          </Box>
+          <Box flexGrow={1}>
+            <Autocomplete
+              options={{
+                componentRestrictions: { country: "sg" },
+              }}>
+              <Input
+                type='text'
+                placeholder='Destination'
+                ref={destiantionRef}
+              />
+            </Autocomplete>
+          </Box>
+
+          <ButtonGroup>
+            <Button colorScheme='pink' type='submit' onClick={calculateRoutes}>
+              Calculate Route
+            </Button>
+            <IconButton
+              aria-label='center back'
+              icon={<FaTimes />}
+              onClick={clearRoute}
+            />
+          </ButtonGroup>
+        {/* </HStack>
+        <HStack spacing={4} mt={4} justifyContent='space-between'> */}
+          <IconButton
+            aria-label='center back'
+            icon={<FaLocationArrow />}
+            isRound
+            onClick={() => {
+              map.panTo(center)
+              map.setZoom(12)
+              // map_public.panTo(center)
+              // map_public.setZoom(12)
+            }}
+          />
+
+        </HStack>
+        <br />
+      </Box>
+      {/* </Flex > */}
+      {/* </Box> */}
+
 
       <Popup anchor={anchor.current} show={show} popupClass={"popup-content"}>
         <HStack spacing={4} mt={4} justifyContent='space-between'>
@@ -348,7 +382,7 @@ export default function AuthComponent() {
         <HStack spacing={4} mt={4} justifyContent='space-between'>
           <Text>Distance: {distance_public} </Text>
           <Text>Duration: {duration_public} </Text>
-          <Text>Fare: {userdata} </Text>
+          <Text>Fare: {fare_public} </Text>
         </HStack>
       </Popup>
     </Flex >
