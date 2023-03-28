@@ -34,8 +34,10 @@ const cookies = new Cookies();
 const token = cookies.get("TOKEN");
 
 export default function AuthComponent() {
+  
   const userdata = localStorage.getItem("user");
-
+  const [time_hour, setHour] = useState("")
+  const [time_min, setMin] = useState("")
   const [map, setMap] = useState(/** @type google.maps.Map */(null))
   const [directionsResponse, setDirectionsResponse] = useState(null)
   const [distance, setDistance] = useState('')
@@ -114,10 +116,14 @@ export default function AuthComponent() {
   }
 
   async function calculateRoutes() {
+    var today = new Date()
+
+    setHour(today.getHours());
+    setMin(today.getMinutes());
     calculateRoute()
     calculateRoute_PublicTrans()
     setShow(true);
-    setUserTypeQuery("Workfare")
+    setUserTypeQuery(userdata)
     getfares();
   }
 

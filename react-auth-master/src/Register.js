@@ -64,11 +64,11 @@ export default function Register() {
           />
         </Form.Group>
         <DropdownButton id="dropdown-basic-button" title="User Type">
-          <Dropdown.Item onClick={(e) => setUsertype("Standard")}>Standard</Dropdown.Item>
-          <Dropdown.Item onClick={(e) => setUsertype("Senior")}>Senior</Dropdown.Item>
-          <Dropdown.Item onClick={(e) => setUsertype("Children")}>Children</Dropdown.Item>
-          <Dropdown.Item onClick={(e) => setUsertype("WorkFare Concession")}>WorkFare Concession</Dropdown.Item>
-          <Dropdown.Item onClick={(e) => setUsertype("Person With Disability")}>Person With Disability</Dropdown.Item>
+          <Dropdown.Item onClick={(e) => setUsertype("Adult")}>Adult</Dropdown.Item>
+          <Dropdown.Item onClick={(e) => setUsertype("Senior citizen")}>Senior citizen</Dropdown.Item>
+          <Dropdown.Item onClick={(e) => setUsertype("Student")}>Student</Dropdown.Item>
+          <Dropdown.Item onClick={(e) => setUsertype("Workfare transport concession ")}>Workfare transport concession </Dropdown.Item>
+          <Dropdown.Item onClick={(e) => setUsertype("Persons with diabilities")}>Persons with diabilities</Dropdown.Item>
         </DropdownButton>
         {/* submit button */}
         <Button

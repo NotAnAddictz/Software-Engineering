@@ -33,714 +33,714 @@
                 "id": "rank"
             }
         ],
-        "q": "Workfare",
+        "q": "Adult",
         "records": [
             {
                 "distance": "Up to 3.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "20",
-                "_id": 235
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "49",
+                "_id": 1
             },
             {
                 "distance": "3.3 km - 4.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "28",
-                "_id": 236
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "59",
+                "_id": 2
             },
             {
                 "distance": "4.3 km - 5.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "36",
-                "_id": 237
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "69",
+                "_id": 3
             },
             {
                 "distance": "5.3 km - 6.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "44",
-                "_id": 238
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "79",
+                "_id": 4
             },
             {
                 "distance": "6.3 km - 7.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "51",
-                "_id": 239
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "88",
+                "_id": 5
             },
             {
                 "distance": "7.3 km - 8.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "57",
-                "_id": 240
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "95",
+                "_id": 6
             },
             {
                 "distance": "8.3 km - 9.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "63",
-                "_id": 241
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "102",
+                "_id": 7
             },
             {
                 "distance": "9.3 km - 10.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "66",
-                "_id": 242
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "106",
+                "_id": 8
             },
             {
                 "distance": "10.3 km - 11.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "69",
-                "_id": 243
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "110",
+                "_id": 9
             },
             {
                 "distance": "11.3 km - 12.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "72",
-                "_id": 244
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "114",
+                "_id": 10
             },
             {
                 "distance": "12.3 km - 13.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "75",
-                "_id": 245
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "118",
+                "_id": 11
             },
             {
                 "distance": "13.3 km - 14.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "78",
-                "_id": 246
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "122",
+                "_id": 12
             },
             {
                 "distance": "14.3 km - 15.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "81",
-                "_id": 247
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "127",
+                "_id": 13
             },
             {
                 "distance": "15.3 km - 16.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "84",
-                "_id": 248
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "131",
+                "_id": 14
             },
             {
                 "distance": "16.3 km - 17.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "87",
-                "_id": 249
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "135",
+                "_id": 15
             },
             {
                 "distance": "17.3 km - 18.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "90",
-                "_id": 250
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "139",
+                "_id": 16
             },
             {
                 "distance": "18.3 km - 19.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "93",
-                "_id": 251
-            },
-            {
-                "distance": "28.3 km - 29.2 km",
-                "_full_count": "78",
-                "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "162",
-                "_id": 300
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "143",
+                "_id": 17
             },
             {
                 "distance": "19.3 km - 20.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "96",
-                "_id": 252
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "146",
+                "_id": 18
             },
             {
                 "distance": "20.3 km - 21.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "99",
-                "_id": 253
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "149",
+                "_id": 19
             },
             {
                 "distance": "21.3 km - 22.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "102",
-                "_id": 254
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "152",
+                "_id": 20
             },
             {
                 "distance": "22.3 km - 23.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "105",
-                "_id": 255
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "155",
+                "_id": 21
             },
             {
                 "distance": "23.3 km - 24.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "107",
-                "_id": 256
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "157",
+                "_id": 22
             },
             {
                 "distance": "24.3 km - 25.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "108",
-                "_id": 257
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "159",
+                "_id": 23
             },
             {
                 "distance": "25.3 km - 26.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "109",
-                "_id": 258
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "161",
+                "_id": 24
             },
             {
                 "distance": "26.3 km - 27.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "110",
-                "_id": 259
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "162",
+                "_id": 25
             },
             {
                 "distance": "27.3 km - 28.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "111",
-                "_id": 260
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "163",
+                "_id": 26
             },
             {
                 "distance": "28.3 km - 29.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "112",
-                "_id": 261
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "164",
+                "_id": 27
             },
             {
                 "distance": "29.3 km - 30.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "113",
-                "_id": 262
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "165",
+                "_id": 28
             },
             {
                 "distance": "30.3 km - 31.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "114",
-                "_id": 263
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "166",
+                "_id": 29
             },
             {
                 "distance": "31.3 km - 32.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "115",
-                "_id": 264
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "167",
+                "_id": 30
             },
             {
                 "distance": "32.3 km - 33.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "116",
-                "_id": 265
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "168",
+                "_id": 31
             },
             {
                 "distance": "33.3 km - 34.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "117",
-                "_id": 266
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "169",
+                "_id": 32
             },
             {
                 "distance": "34.3 km - 35.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "118",
-                "_id": 267
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "170",
+                "_id": 33
             },
             {
                 "distance": "35.3 km - 36.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "119",
-                "_id": 268
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "171",
+                "_id": 34
             },
             {
                 "distance": "36.3 km - 37.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "120",
-                "_id": 269
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "172",
+                "_id": 35
             },
             {
                 "distance": "37.3 km - 38.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "121",
-                "_id": 270
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "173",
+                "_id": 36
             },
             {
                 "distance": "38.3 km - 39.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "122",
-                "_id": 271
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "174",
+                "_id": 37
             },
             {
                 "distance": "39.3 km - 40.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "123",
-                "_id": 272
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "175",
+                "_id": 38
             },
             {
                 "distance": "Over 40.2 km",
                 "_full_count": "78",
                 "applicable_time": "Before 7.45am  (Weekdays excluding public holidays)",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "124",
-                "_id": 273
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "176",
+                "_id": 39
             },
             {
                 "distance": "Up to 3.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "70",
-                "_id": 274
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "99",
+                "_id": 40
             },
             {
                 "distance": "3.3 km - 4.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "78",
-                "_id": 275
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "109",
+                "_id": 41
             },
             {
                 "distance": "4.3 km - 5.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "86",
-                "_id": 276
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "119",
+                "_id": 42
             },
             {
                 "distance": "5.3 km - 6.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "94",
-                "_id": 277
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "129",
+                "_id": 43
             },
             {
                 "distance": "6.3 km - 7.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "101",
-                "_id": 278
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "138",
+                "_id": 44
             },
             {
                 "distance": "7.3 km - 8.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "107",
-                "_id": 279
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "145",
+                "_id": 45
             },
             {
                 "distance": "8.3 km - 9.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "113",
-                "_id": 280
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "152",
+                "_id": 46
             },
             {
                 "distance": "9.3 km - 10.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "116",
-                "_id": 281
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "156",
+                "_id": 47
             },
             {
                 "distance": "10.3 km - 11.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "119",
-                "_id": 282
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "160",
+                "_id": 48
             },
             {
                 "distance": "11.3 km - 12.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "122",
-                "_id": 283
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "164",
+                "_id": 49
             },
             {
                 "distance": "12.3 km - 13.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "125",
-                "_id": 284
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "168",
+                "_id": 50
             },
             {
                 "distance": "13.3 km - 14.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "128",
-                "_id": 285
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "172",
+                "_id": 51
             },
             {
                 "distance": "14.3 km - 15.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "131",
-                "_id": 286
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "177",
+                "_id": 52
             },
             {
                 "distance": "15.3 km - 16.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "134",
-                "_id": 287
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "181",
+                "_id": 53
             },
             {
                 "distance": "16.3 km - 17.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "137",
-                "_id": 288
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "185",
+                "_id": 54
             },
             {
                 "distance": "17.3 km - 18.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "140",
-                "_id": 289
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "189",
+                "_id": 55
             },
             {
                 "distance": "18.3 km - 19.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "143",
-                "_id": 290
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "193",
+                "_id": 56
             },
             {
                 "distance": "19.3 km - 20.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "146",
-                "_id": 291
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "196",
+                "_id": 57
             },
             {
                 "distance": "20.3 km - 21.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "149",
-                "_id": 292
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "199",
+                "_id": 58
             },
             {
                 "distance": "21.3 km - 22.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "152",
-                "_id": 293
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "202",
+                "_id": 59
             },
             {
                 "distance": "22.3 km - 23.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "155",
-                "_id": 294
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "205",
+                "_id": 60
             },
             {
                 "distance": "23.3 km - 24.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "157",
-                "_id": 295
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "207",
+                "_id": 61
             },
             {
                 "distance": "24.3 km - 25.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "158",
-                "_id": 296
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "209",
+                "_id": 62
             },
             {
                 "distance": "25.3 km - 26.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "159",
-                "_id": 297
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "211",
+                "_id": 63
             },
             {
                 "distance": "26.3 km - 27.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "160",
-                "_id": 298
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "212",
+                "_id": 64
             },
             {
                 "distance": "27.3 km - 28.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "161",
-                "_id": 299
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "213",
+                "_id": 65
+            },
+            {
+                "distance": "28.3 km - 29.2 km",
+                "_full_count": "78",
+                "applicable_time": "All other timings",
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "214",
+                "_id": 66
             },
             {
                 "distance": "29.3 km - 30.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "163",
-                "_id": 301
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "215",
+                "_id": 67
             },
             {
                 "distance": "30.3 km - 31.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "164",
-                "_id": 302
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "216",
+                "_id": 68
             },
             {
                 "distance": "31.3 km - 32.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "165",
-                "_id": 303
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "217",
+                "_id": 69
             },
             {
                 "distance": "32.3 km - 33.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "166",
-                "_id": 304
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "218",
+                "_id": 70
             },
             {
                 "distance": "33.3 km - 34.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "167",
-                "_id": 305
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "219",
+                "_id": 71
             },
             {
                 "distance": "34.3 km - 35.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "168",
-                "_id": 306
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "220",
+                "_id": 72
             },
             {
                 "distance": "35.3 km - 36.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "169",
-                "_id": 307
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "221",
+                "_id": 73
             },
             {
                 "distance": "36.3 km - 37.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "170",
-                "_id": 308
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "222",
+                "_id": 74
             },
             {
                 "distance": "37.3 km - 38.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "171",
-                "_id": 309
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "223",
+                "_id": 75
             },
             {
                 "distance": "38.3 km - 39.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "172",
-                "_id": 310
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "224",
+                "_id": 76
             },
             {
                 "distance": "39.3 km - 40.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "173",
-                "_id": 311
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "225",
+                "_id": 77
             },
             {
                 "distance": "Over 40.2 km",
                 "_full_count": "78",
                 "applicable_time": "All other timings",
-                "rank": 0.0,
-                "fare_type": "Workfare transport concession card fare",
-                "fare_per_ride": "174",
-                "_id": 312
+                "rank": 0.0573088,
+                "fare_type": "Adult card fare",
+                "fare_per_ride": "226",
+                "_id": 78
             }
         ],
         "_links": {
-            "start": "/api/action/datastore_search?q=Workfare&resource_id=663fe7b6-23c2-4a40-b77a-a2fa2114beff",
-            "next": "/api/action/datastore_search?q=Workfare&offset=100&resource_id=663fe7b6-23c2-4a40-b77a-a2fa2114beff"
+            "start": "/api/action/datastore_search?q=Adult&resource_id=663fe7b6-23c2-4a40-b77a-a2fa2114beff",
+            "next": "/api/action/datastore_search?q=Adult&offset=100&resource_id=663fe7b6-23c2-4a40-b77a-a2fa2114beff"
         },
         "total": 78
     }
