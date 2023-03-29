@@ -5,19 +5,34 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from "react-router-dom";
-import { ChakraProvider, theme } from '@chakra-ui/react'
+import {theme as baseTheme, ChakraProvider,extendTheme,withDefaultColorScheme} from '@chakra-ui/react'
+
+const theme = extendTheme(
+  {
+  colors: {
+  brand: {
+  500: "#b4d455",
+  },
+  },
+  config:{initialColorMode: 'dark',
+  },
+  },
+  withDefaultColorScheme({ colorScheme: "red" }),
+  baseTheme // optional
+  )
 
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <ChakraProvider theme={theme}>
-        <App />
-      </ChakraProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
+
+    <React.StrictMode>
+      <BrowserRouter>
+        <ChakraProvider theme={theme}>
+          <App />
+        </ChakraProvider>
+      </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById("root")
 );
 
 
