@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Container, Col, Row } from "react-bootstrap";
 import Account from "./Account";
 import FreeComponent from "./FreeComponent";
@@ -23,31 +23,63 @@ import {
   FormErrorMessage,
   FormHelperText,
   VStack,
+  AbsoluteCenter,
+  Spacer,
 } from '@chakra-ui/react'
+import Cookies from "universal-cookie";
 
 import companyLogo from './assets/logo.png';
 import Register from "./Register";
+const cookies = new Cookies();
+const logout = () => {
+  // destroy the cookie
+  cookies.remove("TOKEN", { path: "/" });
+  // redirect user to the landing page
+  localStorage.removeItem("user")
+  window.location.href = "/";
+}
 
 function App() {
+  const location = useLocation()
+
   const [userdata, setUserData] = useState(" ")
   return (
     <>
-      <Row>
-        <Col className="text-center">
-          <Flex
-            position='relative'
-            flexDirection='column'
+      <Box position='relative' w='100%' paddingRight="2">
+        <HStack w="100%" h="100px" alignContent='right'>
+          <AbsoluteCenter axis="both">
+            <Flex
+              position='relative'
+              flexDirection='row'
+              alignItems='center'
+            >
+              <img src={companyLogo} style={{ height: '100px', alignSelf: 'center' }} />
+            </Flex>
+          </AbsoluteCenter>
+          <Spacer/>
+            {location.pathname !== "/" && location.pathname !== "/register" &&
+              <Button colorScheme='teal' type='submit' onClick={logout}>
+                Logout
+              </Button>
+            }
+        </HStack>
+      </Box>
+      {/* <Flex
+            position='absolute'
+            flexDirection='row'
             alignItems='center'
           >
-            <img src={companyLogo} style={{ height: '100px', alignSelf: 'center' }} />
-          </Flex>
-        </Col>
-      </Row>
+            {location.pathname !== "/" && location.pathname !== "/register" &&
+              <Button position='absolute' left={0} top={0} colorScheme='pink' type='submit' onClick={logout}>
+                Logout
+              </Button>
+            }
+          </Flex> */}
 
       {/* create routes here */}
       <Routes>
         <Route exact path="/" element={<Login />} />
-        <Route exact path="/register" element={<Register/>} />
+        <Route exact path="/register" element={<Register />} />
         <Route exact path="/free" element={<FreeComponent />} />
         <Route exact path="/auth" element={<AuthComponent userdata={userdata} />} />
         <Route exact path="/taxi" element={<TaxiComponent />} />

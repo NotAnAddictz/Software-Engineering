@@ -221,7 +221,7 @@ export default function AuthComponent() {
     var sum = 0.0;
     for (i = 0; i < results.routes[0].legs[0].steps.length; i++) {
       if (results.routes[0].legs[0].steps[i].transit !== undefined) {
-        prev[i+offset] = ` ${results.routes[0].legs[0].steps[i].instructions}`
+        prev[i + offset] = ` ${results.routes[0].legs[0].steps[i].instructions}`
         var x;
         // if(time_hour<7 && time_min<45){
         if (records.length !== 0) {
@@ -270,7 +270,7 @@ export default function AuthComponent() {
       } else {
         var z;
         for (z = 0; z < results.routes[0].legs[0].steps[i].steps.length; z++) {
-          prev[i+offset+z] = `${results.routes[0].legs[0].steps[i].steps[z].instructions}`
+          prev[i + offset + z] = `${results.routes[0].legs[0].steps[i].steps[z].instructions}`
         }
         offset += z
       }
@@ -335,7 +335,7 @@ export default function AuthComponent() {
 
   return (
     <Flex
-      position='relative'
+      position='absolute'
       flexDirection='column'
       alignItems='center'
       h='100vh'
