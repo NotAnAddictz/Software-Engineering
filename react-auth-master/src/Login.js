@@ -1,22 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { redirect, Route } from "react-router-dom";
-import AuthComponent from "./AuthComponent";
 import {
   Box,
   Button,
-  ButtonGroup,
   Center,
-  Flex,
-  HStack,
-  IconButton,
   Input,
-  SkeletonText,
   Text,
   FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   VStack,
 } from '@chakra-ui/react'
 import Cookies from "universal-cookie";
@@ -54,6 +45,7 @@ export default function Login({ setUserData }) {
         // redirect user to the auth page
         setUsertype(result.data.usertype)
         localStorage.setItem("user", result.data.usertype);
+        localStorage.setItem("useremail", result.data.email);
         setLogin(true);
         window.location.href = "/auth";
 
@@ -65,6 +57,10 @@ export default function Login({ setUserData }) {
   };
   function handleRegister() {
     window.location.href = "/register";
+  }
+
+  function handleForgotPassword(){
+    window.location.href = "/forgotpw";
   }
   return (
     <Box position='relative' h='100%' w='100%'>
@@ -86,6 +82,10 @@ export default function Login({ setUserData }) {
             {/* submit button */}
             <Button colorScheme='pink' type='submit' onClick={(e) => handleSubmit(e)}>
               Login
+            </Button>
+
+            <Button colorScheme='pink' type='submit' onClick={handleForgotPassword}>
+              Forgot Password
             </Button>
 
             <Text>

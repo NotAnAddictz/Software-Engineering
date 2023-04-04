@@ -12,17 +12,17 @@ import {
   VStack,
 } from '@chakra-ui/react'
 
-export default function Register() {
+export default function EditProfile() {
   // initial state
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
   const [usertype, setUsertype] = useState("");
   const [register, setRegister] = useState(false);
-  const [samepass, setSamePass] = useState(1);
-  const [emailerr, setEmailErr] = useState(1);
-  const [passerr, setPassErr] = useState(1);
-  const userdata = localStorage.getItem("user");
+  const [samepass, setSamePass] = useState();
+  const [emailerr, setEmailErr] = useState();
+  const [passerr, setPassErr] = useState();
+
 
   const handleSubmit = (e) => {
     // prevent the form from refreshing the whole page

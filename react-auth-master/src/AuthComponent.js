@@ -23,7 +23,7 @@ import {
   SkeletonText,
   Text,
 } from '@chakra-ui/react'
-import { FaLocationArrow, FaTimes } from 'react-icons/fa'
+import { FaLocationArrow, FaTimes, FaArrowsAltH } from 'react-icons/fa'
 
 const center = { lat: 1.3500883722383386, lng: 103.81306869057929 }
 const places = ['places']
@@ -294,6 +294,22 @@ export default function AuthComponent() {
     setShow(false);
   }
 
+  function swaplocation() {
+    setDirectionsResponse(null)
+    setDistance('')
+    setDuration('')
+    setFare('')
+    setDirectionsResponsePublic(null)
+    setDistancePublic('')
+    setDurationPublic('')
+    setFarePublic('')
+    var tempvalue
+    tempvalue = originRef.current.value
+    originRef.current.value = destiantionRef.current.value
+    destiantionRef.current.value = tempvalue
+    setShow(false);
+  }
+
   function handleTaxi() {
     setDirectionsResponsePublic(null)
     setShow(false);
@@ -384,6 +400,11 @@ export default function AuthComponent() {
               <Input type='text' variant='outline' bg='gray.100' _placeholder={{ opacity: 1, color: 'gray.500' }} color='black' placeholder='Origin' ref={originRef} />
             </Autocomplete>
           </Box>
+          <IconButton
+              aria-label='center back'
+              icon={<FaArrowsAltH />}
+              onClick={swaplocation}
+            />
           <Box flexGrow={1}>
             <Autocomplete
               options={{

@@ -12,17 +12,17 @@ import {
   VStack,
 } from '@chakra-ui/react'
 
-export default function Register() {
+export default function ForgotPassword() {
   // initial state
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
   const [usertype, setUsertype] = useState("");
-  const [register, setRegister] = useState(false);
+  const [reset, setReset] = useState(false);
   const [samepass, setSamePass] = useState(1);
   const [emailerr, setEmailErr] = useState(1);
   const [passerr, setPassErr] = useState(1);
-  const userdata = localStorage.getItem("user");
+
 
   const handleSubmit = (e) => {
     // prevent the form from refreshing the whole page
@@ -31,18 +31,17 @@ export default function Register() {
     // set configurations
     const configuration = {
       method: "post",
-      url: "http://localhost:3000/register",
+      url: "http://localhost:3000/forgotpassword",
       data: {
         email,
         password,
-        usertype,
       },
     };
 
     // make the API call
     axios(configuration)
       .then((result) => {
-        setRegister(true);
+        setReset(true)
         window.location.href ="/"
       })
       .catch((error) => {
@@ -112,24 +111,18 @@ export default function Register() {
             ) : (
               <p className="text-danger">Passwords do not match</p>
             )}
-            <DropdownButton id="dropdown-basic-button" title="User Type">
-              <Dropdown.Item onClick={(e) => setUsertype("Adult")}>Adult</Dropdown.Item>
-              <Dropdown.Item onClick={(e) => setUsertype("Senior citizen")}>Senior citizen</Dropdown.Item>
-              <Dropdown.Item onClick={(e) => setUsertype("Student")}>Student</Dropdown.Item>
-              <Dropdown.Item onClick={(e) => setUsertype("Workfare transport concession")}>Workfare transport concession </Dropdown.Item>
-              <Dropdown.Item onClick={(e) => setUsertype("Persons with diabilities")}>Persons with disabilities</Dropdown.Item>
-            </DropdownButton>
+    
             {/* submit button */}
             <Button colorScheme='pink' type='submit' onClick={(e) => handleSubmit(e)}>
-              Register
+              Reset Password
             </Button>
 
 
             {/* display success message */}
-            {register ? (
-              <p className="text-success">You Are Registered Successfully</p>
+            {reset ? (
+              <p className="text-success">Password Reset!</p>
             ) : (
-              <p className="text-danger">You Are Not Registered</p>
+              <p className="text-danger"></p>
             )}
           </VStack>
         </Box>

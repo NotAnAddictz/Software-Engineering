@@ -90,7 +90,7 @@ app.post("/login", (request, response) => {
         .then((passwordCheck) => {
 
           // check if password matches
-          if(!passwordCheck) {
+          if (!passwordCheck) {
             return response.status(400).send({
               message: "Passwords does not match",
               error,
@@ -131,6 +131,42 @@ app.post("/login", (request, response) => {
       });
     });
 });
+
+// Forgot Password
+
+app.post("/forgotpassword", (request, response) => {
+  // hash the password
+    bcrypt
+      .hash(request.body.password, 10)
+      .then((hashedPassword) => {
+        // create a new user instance and collect the data
+  
+        // save the new user
+        User
+          .updateOne({email:request.body.email},{password: hashedPassword })
+          // return success if the new user is added to the database successfully
+          .then((result) => {
+            response.status(201).send({
+              message: "User Created Successfully",
+              result,
+            });
+          })
+          // catch erroe if the new user wasn't added successfully to the database
+          .catch((error) => {
+            response.status(500).send({
+              message: "Error creating user",
+              error,
+            });
+          });
+      })
+      // catch error if the password hash isn't successful
+      .catch((e) => {
+        response.status(500).send({
+          message: "Password was not hashed successfully",
+          e,
+        });
+      });
+  });
 
 // free endpoint
 app.get("/free-endpoint", (request, response) => {
