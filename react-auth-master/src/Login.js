@@ -10,8 +10,12 @@ import {
   FormLabel,
   VStack,
   Link,
+  HStack,
+  Spacer,
 } from '@chakra-ui/react'
 import Cookies from "universal-cookie";
+import background from "./assets/background.gif"
+
 const cookies = new Cookies();
 
 export default function Login() {
@@ -72,47 +76,57 @@ export default function Login() {
     window.location.href = "/forgotpw";
   }
   return (
-    <Box position='relative' h='100%' w='100%'>
-      <Center>
-        <Box position='relative' h='70%' w='30%' borderWidth='1px' borderRadius='12px' p={4} bg='gray.700' >
-          <VStack spacing={5} h='100%' alignItems='center' >
-            {/* email */}
-            <FormLabel>Email address</FormLabel>
-            <FormControl>
-              <Input type='email' name="email" value={email} placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} />
-            </FormControl>
+    <div style={{ height: '100vh', backgroundImage: `url(${background})` }}>
+      <Box position='relative' h='100%' w='100%' >
+        <Box position='relative' h='100px'/>
+        <Center>
+          <Box position='relative' h='70%' w='30%' borderWidth='1px' borderRadius='12px' borderColor='black' p={4} bg='gray.700' >
+            <VStack spacing={5} h='100%' alignItems='center' >
+              {/* email */}
+              <HStack w='100%'>
+                <FormLabel>Email address</FormLabel>
+              </HStack>
+              <FormControl>
+                <Input type='email' name="email" value={email} placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} />
+              </FormControl>
 
-            {/* password */}
-            <FormLabel>Password</FormLabel>
-            <FormControl>
-              <Input type='password' name="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-            </FormControl>
+              {/* password */}
+              <HStack w='100%'>
+                <FormLabel>Password</FormLabel>
+                <Spacer />
+                <Text>
+                  <Link color='teal.500' href='/forgotpw'>
+                    Forgot Password?
+                  </Link>
+                </Text>
+              </HStack>
+              <FormControl>
+                <Input type='password' name="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+              </FormControl>
 
-            {/* submit button */}
-            <Button colorScheme='pink' type='submit' onClick={(e) => handleSubmit(e)}>
-              Login
-            </Button>
+              {/* submit button */}
+              <Button w='100%' colorScheme='pink' type='submit' onClick={(e) => handleSubmit(e)}>
+                Login
+              </Button>
 
-            <Button colorScheme='pink' type='submit' onClick={handleForgotPassword}>
-              Forgot Password
-            </Button>
-            {/* display success message */}
-            {login ? (
-              <p className="text-success">You Are Logged in Successfully</p>
-            ) : (
-              <p className="text-danger">You Are Not Logged in <br/>{msg}</p>
-            )}
+              {/* display success message */}
+              {login ? (
+                <p className="text-success">You Are Logged in Successfully</p>
+              ) : (
+                <p className="text-danger">You Are Not Logged in <br />{msg}</p>
+              )}
 
-            <Text>
-              No Account?{' '}
-              <Link color='teal.500' href='/register'>
-                Register Now!
-              </Link>
-            </Text>
+              <Text>
+                No Account?{' '}
+                <Link color='teal.500' href='/register'>
+                  Register Now!
+                </Link>
+              </Text>
 
-          </VStack>
-        </Box>
-      </Center>
-    </Box>
+            </VStack>
+          </Box>
+        </Center>
+      </Box>
+    </div>
   );
 }

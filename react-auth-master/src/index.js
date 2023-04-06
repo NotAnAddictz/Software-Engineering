@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from "react-router-dom";
-import {theme as baseTheme, ChakraProvider,extendTheme,withDefaultColorScheme} from '@chakra-ui/react'
+import {theme as baseTheme, Box, ChakraProvider,extendTheme,Image,withDefaultColorScheme} from '@chakra-ui/react'
 
 const theme = extendTheme(
   {
@@ -27,8 +27,8 @@ ReactDOM.render(
 
     <React.StrictMode>
       <BrowserRouter>
-        <ChakraProvider theme={theme}>
-          <App />
+        <ChakraProvider theme={theme} >
+          <App/>
         </ChakraProvider>
       </BrowserRouter>
     </React.StrictMode>,

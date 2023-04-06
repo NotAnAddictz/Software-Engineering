@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { Container, Col, Row } from "react-bootstrap";
-import Account from "./Account";
 import FreeComponent from "./FreeComponent";
 import AuthComponent from "./AuthComponent";
 import TaxiComponent from "./TaxiComponent";
@@ -12,27 +10,18 @@ import Sendotp from "./sendotp";
 import {
   Box,
   Button,
-  ButtonGroup,
-  Center,
   Flex,
   HStack,
-  IconButton,
-  Input,
-  SkeletonText,
-  Text,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-  VStack,
   AbsoluteCenter,
   Spacer,
 } from '@chakra-ui/react'
 import Cookies from "universal-cookie";
 
-import companyLogo from './assets/logo.png';
 import Register from "./Register";
 import ForgotPassword from "./ForgotPassword";
+import companyLogo from './assets/logo.png';
+
+
 const cookies = new Cookies();
 const logout = () => {
   // destroy the cookie
@@ -51,11 +40,9 @@ const editprofile = () => {
 
 function App() {
   const location = useLocation()
-
-  const [userdata, setUserData] = useState(" ")
   return (
     <>
-      <Box position='relative' w='100%' paddingRight="2" paddingLeft="2">
+      <Box position='relative' w='100%' paddingRight="2" paddingLeft="2" >
         <HStack w="100%" h="100px" alignContent='right'>
           {location.pathname !== "/" && location.pathname !== "/register" && location.pathname !== "/forgotpw" && location.pathname !== "/editprofile" && location.pathname !== "/otp" &&
             <Button colorScheme='teal' type='submit' onClick={editprofile}>
@@ -69,6 +56,8 @@ function App() {
               alignItems='center'
             >
               <img src={companyLogo} style={{ height: '100px', alignSelf: 'center' }} />
+
+
             </Flex>
           </AbsoluteCenter>
           <Spacer />
@@ -85,7 +74,7 @@ function App() {
         <Route exact path="/" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/free" element={<FreeComponent />} />
-        <Route exact path="/auth" element={<AuthComponent userdata={userdata} />} />
+        <Route exact path="/auth" element={<AuthComponent />} />
         <Route exact path="/taxi" element={<TaxiComponent />} />
         <Route exact path="/publictrans" element={<PublicTransComponent />} />
         <Route exact path="/editprofile" element={<EditProfile />} />

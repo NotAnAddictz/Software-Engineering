@@ -141,7 +141,7 @@ export default function Register() {
               <option value='Persons with diabilities'>Persons with disabilities</option>
             </Select>
             {/* submit button */}
-            <Button colorScheme='pink' type='submit' isDisabled={!samepass || !passerr || !emailerr || !usererr} onClick={(e) => handleSubmit(e)}>
+            <Button colorScheme='pink' type='submit' w='100%' isDisabled={!samepass || !passerr || !emailerr || !usererr} onClick={(e) => handleSubmit(e)}>
               Register
             </Button>
 
