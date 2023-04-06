@@ -47,6 +47,8 @@ app.post("/register", (request, response) => {
         password: hashedPassword,
         usertype: request.body.usertype,
         favourites: [],
+        otp:request.body.otp,
+        verified:false,
       });
 
       // save the new user
@@ -61,6 +63,7 @@ app.post("/register", (request, response) => {
         })
         // catch erroe if the new user wasn't added successfully to the database
         .catch((error) => {
+          console.log(error)
           response.status(500).send({
             message: "Error creating user",
             error,
@@ -69,6 +72,7 @@ app.post("/register", (request, response) => {
     })
     // catch error if the password hash isn't successful
     .catch((e) => {
+      console.log(e)
       response.status(500).send({
         message: "Password was not hashed successfully",
         e,
@@ -112,6 +116,7 @@ app.post("/login", (request, response) => {
             email: user.email,
             usertype: user.usertype,
             favourites: user.favourites,
+            verified: user.verified,
             token,
           });
         })
@@ -217,6 +222,42 @@ app.post("/addfavourite", (request, response) => {
         .then((result) => {
           response.status(201).send({
             message: "Favourite Created Successfully",
+            favourites: user.favourites,
+            result,
+          });
+        })
+        // catch erroe if the new user wasn't added successfully to the database
+        .catch((error) => {
+          response.status(501).send({
+            message: "Error creating user",
+            error,
+          });
+        });
+
+    })
+    // catch error if email does not exist
+    .catch((e) => {
+      response.status(404).send({
+        message: "Email not found",
+        e,
+      });
+    });
+});
+
+
+app.post("/verify", (request, response) => {
+  // check if email exists
+  User.findOne({ email: request.body.email })
+
+    // if email exists
+    .then((user) => {
+      if(user.otp == request.body.otp)
+      User
+        .updateOne({ email: request.body.email }, {verified:true})
+        // return success if the new user is added to the database successfully
+        .then((result) => {
+          response.status(201).send({
+            message: "Verified Successfully",
             favourites: user.favourites,
             result,
           });

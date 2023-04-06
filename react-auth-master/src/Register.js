@@ -12,6 +12,8 @@ import {
   VStack,
   Select,
 } from '@chakra-ui/react'
+import emailjs from '@emailjs/browser';
+
 
 export default function Register() {
   // initial state
@@ -26,25 +28,38 @@ export default function Register() {
   const userdata = localStorage.getItem("user");
 
   const handleSubmit = (e) => {
+    var x = document.getElementById("ddlViewBy");
+
     // prevent the form from refreshing the whole page
     e.preventDefault();
     // set configurations
+    const otp = (Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000)
     const configuration = {
       method: "post",
       url: "http://localhost:3000/register",
       data: {
         email,
         password,
-        usertype : e.value,
+        usertype: x.value,
+        otp: otp,
       },
     };
-
+    var template = {
+      message: otp.toString(),
+      to_email: email,
+    }
+    console.log(email)
     // make the API call
     axios(configuration)
       .then((result) => {
-        setRegister(true);
-        window.location.href = "/"
-      })
+        emailjs.send('service_p69ylxn', 'template_asqv3xm', template, 'SeX2nkLBpdYR9EWgH').then(function (response) {
+          console.log('SUCCESS!', response.status, response.text);
+          localStorage.setItem("useremail", email)
+          window.location.href = "/otp"
+        });
+        setRegister(true)
+        
+        })
       .catch((error) => {
         error = new Error();
       });
@@ -78,7 +93,7 @@ export default function Register() {
     }
   };
 
-  
+
 
   return (
     <Box position='relative' h='100%' w='100%'>

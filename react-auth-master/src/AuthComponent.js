@@ -26,7 +26,6 @@ import {
 } from '@chakra-ui/react'
 
 import { FaLocationArrow, FaTimes, FaArrowsAltH, FaPlus } from 'react-icons/fa'
-import { json } from "react-router-dom";
 
 const center = { lat: 1.3500883722383386, lng: 103.81306869057929 }
 const places = ['places']

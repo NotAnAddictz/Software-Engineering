@@ -24,7 +24,7 @@ const center = { lat: 1.3500883722383386, lng: 103.81306869057929 }
 const places = ['places']
 
 export default function PublicTransComponent() {
-    
+
     const [map, setMap] = useState(/** @type google.maps.Map */(null))
     const styles = {
         default: [],
@@ -49,7 +49,7 @@ export default function PublicTransComponent() {
     let fare = JSON.parse(localStorage.getItem("Price Public"));
     let distance = JSON.parse(localStorage.getItem("Distance Public"));
     let directions = JSON.parse(localStorage.getItem("Directionslist Public"));
-
+    var formattedString = directions.split(",").join("\n")
     function clearRoute() {
         window.location.href = "/auth"
     }
@@ -120,8 +120,9 @@ export default function PublicTransComponent() {
                         fontWeight="extrabold" >
                         Distance: {distance} <br />
                         Fare: ${fare} (estimated) <br />
-                        Directions: {directions}
+                        Directions: {formattedString}
                     </Text>
+                    
                 </Box>
             </HStack>
         </Flex >

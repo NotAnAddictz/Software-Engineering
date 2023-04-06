@@ -23,6 +23,14 @@ const UserSchema = new mongoose.Schema({
   favourites: [{
     origin: String, destination: String
     }],
+  otp:{
+    type: Number,
+    unique: false,
+  },
+  verified:{
+    type:Boolean,
+    unique: false,
+  }
 });
 
 // export UserSchema

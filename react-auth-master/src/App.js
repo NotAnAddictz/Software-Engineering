@@ -8,6 +8,7 @@ import TaxiComponent from "./TaxiComponent";
 import PublicTransComponent from "./PublicTransComponent";
 import Login from "./Login";
 import EditProfile from "./EditProfile";
+import Sendotp from "./sendotp";
 import {
   Box,
   Button,
@@ -61,7 +62,7 @@ function App() {
     <>
       <Box position='relative' w='100%' paddingRight="2" paddingLeft="2">
         <HStack w="100%" h="100px" alignContent='right'>
-          {location.pathname !== "/" && location.pathname !== "/register" && location.pathname !== "/forgotpw" && location.pathname !== "/editprofile" &&
+          {location.pathname !== "/" && location.pathname !== "/register" && location.pathname !== "/forgotpw" && location.pathname !== "/editprofile" && location.pathname !== "/otp" &&
             <Button colorScheme='teal' type='submit' onClick={editprofile}>
               Edit Profile
             </Button>
@@ -94,6 +95,7 @@ function App() {
         <Route exact path="/publictrans" element={<PublicTransComponent />} />
         <Route exact path="/editprofile" element={<EditProfile />} />
         <Route exact path="/forgotpw" element={<ForgotPassword />} />
+        <Route exact path="/otp" element={<Sendotp />} />
       </Routes>
     </>
   );

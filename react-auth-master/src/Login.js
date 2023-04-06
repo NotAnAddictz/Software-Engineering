@@ -42,13 +42,19 @@ export default function Login({ setUserData }) {
         cookies.set("TOKEN", result.data.token, {
           path: "/",
         });
-        // redirect user to the auth page
-        setUsertype(result.data.usertype)
-        localStorage.setItem("user", result.data.usertype);
-        localStorage.setItem("useremail", result.data.email);
-        localStorage.setItem("favourites", JSON.stringify(result.data.favourites));
-        setLogin(true);
-        window.location.href = "/auth";
+        if (result.data.verified == false) {
+          localStorage.setItem("useremail", result.data.email);
+          window.location.href = "/otp";
+        }
+        else {
+          // redirect user to the auth page
+          setUsertype(result.data.usertype)
+          localStorage.setItem("user", result.data.usertype);
+          localStorage.setItem("useremail", result.data.email);
+          localStorage.setItem("favourites", JSON.stringify(result.data.favourites));
+          setLogin(true);
+          window.location.href = "/auth";
+        }
 
       })
       .catch((error) => {
@@ -60,7 +66,7 @@ export default function Login({ setUserData }) {
     window.location.href = "/register";
   }
 
-  function handleForgotPassword(){
+  function handleForgotPassword() {
     window.location.href = "/forgotpw";
   }
   return (
