@@ -1,6 +1,5 @@
 import React, {useState } from "react";
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import emailjs from '@emailjs/browser';
 import axios from "axios";
 import {
   Box,
@@ -41,8 +40,16 @@ export default function ForgotPassword() {
     // make the API call
     axios(configuration)
       .then((result) => {
+        var template = {
+          message: result.data.otp.toString(),
+          to_email: email,
+        }
         setReset(true)
-        window.location.href ="/"
+        emailjs.send('service_p69ylxn', 'template_asqv3xm', template, 'SeX2nkLBpdYR9EWgH').then(function (response) {
+          console.log('SUCCESS!', response.status, response.text);
+          localStorage.setItem("useremail", email)
+          window.location.href = "/otp"
+        });
       })
       .catch((error) => {
         error = new Error();

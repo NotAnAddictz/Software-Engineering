@@ -38,12 +38,7 @@ const logout = () => {
   // destroy the cookie
   cookies.remove("TOKEN", { path: "/" });
   // redirect user to the landing page
-  localStorage.removeItem("user")
-  localStorage.removeItem("Taxi_Directions")
-  localStorage.removeItem("favourites")
-  localStorage.removeItem("Markers")
-  localStorage.removeItem("Price")
-  localStorage.removeItem("Distance")
+  localStorage.clear();
   window.location.href = "/";
 }
 

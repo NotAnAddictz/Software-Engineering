@@ -11,6 +11,8 @@ import {
   FormLabel,
   VStack,
   Select,
+  Text,
+  Link,
 } from '@chakra-ui/react'
 import emailjs from '@emailjs/browser';
 
@@ -25,8 +27,9 @@ export default function Register() {
   const [samepass, setSamePass] = useState(1);
   const [emailerr, setEmailErr] = useState(1);
   const [passerr, setPassErr] = useState(1);
+  const [usererr, setUsererr] = useState(0);
   const userdata = localStorage.getItem("user");
-
+  const [msg, setMsg] = useState("");
   const handleSubmit = (e) => {
     var x = document.getElementById("ddlViewBy");
 
@@ -48,7 +51,6 @@ export default function Register() {
       message: otp.toString(),
       to_email: email,
     }
-    console.log(email)
     // make the API call
     axios(configuration)
       .then((result) => {
@@ -58,9 +60,10 @@ export default function Register() {
           window.location.href = "/otp"
         });
         setRegister(true)
-        
-        })
+        setMsg("")
+      })
       .catch((error) => {
+        setMsg("Email Already Exists!")
         error = new Error();
       });
 
@@ -93,7 +96,9 @@ export default function Register() {
     }
   };
 
-
+  function handleSelect() {
+    setUsererr(1)
+  }
 
   return (
     <Box position='relative' h='100%' w='100%'>
@@ -128,7 +133,7 @@ export default function Register() {
             ) : (
               <p className="text-danger">Passwords do not match</p>
             )}
-            <Select placeholder='Select User Type' bg="teal" id='ddlViewBy'>
+            <Select placeholder='Select User Type' bg="teal" id='ddlViewBy' onChange={handleSelect}>
               <option value='Adult' >Adult</option>
               <option value='Senior citizen'>Senior citizen</option>
               <option value='Student'>Student</option>
@@ -136,7 +141,7 @@ export default function Register() {
               <option value='Persons with diabilities'>Persons with disabilities</option>
             </Select>
             {/* submit button */}
-            <Button colorScheme='pink' type='submit' onClick={(e) => handleSubmit(e)}>
+            <Button colorScheme='pink' type='submit' isDisabled={!samepass || !passerr || !emailerr || !usererr} onClick={(e) => handleSubmit(e)}>
               Register
             </Button>
 
@@ -145,8 +150,14 @@ export default function Register() {
             {register ? (
               <p className="text-success">You Are Registered Successfully</p>
             ) : (
-              <p className="text-danger">You Are Not Registered</p>
+              <p className="text-danger">You Are Not Registered <br /> {msg}</p>
             )}
+            <Text>
+              Already have an account?{' '}
+              <Link color='teal.500' href='/'>
+                Login
+              </Link>
+            </Text>
           </VStack>
         </Box>
       </Center>

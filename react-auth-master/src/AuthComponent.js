@@ -32,11 +32,15 @@ const places = ['places']
 const cookies = new Cookies();
 // get token generated on login
 const token = cookies.get("TOKEN");
+var favourites = JSON.parse(localStorage.getItem("favourites"));
 
 export default function AuthComponent() {
   const [markers, setMarkers] = useState([{ position: { lat: 41.881832, lng: -87.623177 } }])
   const userdata = localStorage.getItem("user");
-  var favourites = JSON.parse(localStorage.getItem("favourites"));
+  if(userdata === null){
+    window.location.href = "/"
+  }
+  // var favourites = JSON.parse(localStorage.getItem("favourites"));
   const [time_hour, setHour] = useState("")
   const [time_min, setMin] = useState("")
   const [time_date, setDate] = useState("")
@@ -72,7 +76,6 @@ export default function AuthComponent() {
 
   // useEffect automatically executes once the page is fully loaded
   useEffect(() => {
-    console.log(favourites)
     favourites = JSON.parse(localStorage.getItem("favourites"));
 
     // set configurations for the API call here
@@ -278,29 +281,33 @@ export default function AuthComponent() {
   }
 
   const addfavourite = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     // set configurations
-    const configuration = {
-      method: "post",
-      url: "http://localhost:3000/addfavourite",
-      data: {
-        email: localStorage.getItem("useremail"),
-        origin: originRef.current.value,
-        destination: destiantionRef.current.value,
-      },
-    };
+    if(originRef.current.value !== ""){
 
-    // make the API call
-    axios(configuration)
-      .then((result) => {
-        // redirect user to the auth page
-        localStorage.setItem("favourites", JSON.stringify(result.data.favourites));;
-        favourites = JSON.parse(localStorage.getItem("favourites"));
-
-      })
-      .catch((error) => {
-        error = new Error();
-      });
+      const configuration = {
+        method: "post",
+        url: "http://localhost:3000/addfavourite",
+        data: {
+          email: localStorage.getItem("useremail"),
+          origin: originRef.current.value,
+          destination: destiantionRef.current.value,
+        },
+      };
+  
+      // make the API call
+      axios(configuration)
+        .then((result) => {
+          console.log(result.data.favourites)
+          // redirect user to the auth page
+          localStorage.setItem("favourites", JSON.stringify(result.data.favourites));
+          favourites = JSON.parse(localStorage.getItem("favourites"));
+          window.location.href = "/auth";
+        })
+        .catch((error) => {
+          error = new Error();
+        });
+    }
   }
 
   function clearRoute() {
@@ -355,7 +362,6 @@ export default function AuthComponent() {
 
   function handleselect(){
     var e = document.getElementById("ddlView");
-    console.log(e.options[e.selectedIndex].text )
     originRef.current.value = e.options[e.selectedIndex].text.split("->")[0]
     destiantionRef.current.value = e.options[e.selectedIndex].text.split("->")[1]
   }

@@ -47,8 +47,8 @@ app.post("/register", (request, response) => {
         password: hashedPassword,
         usertype: request.body.usertype,
         favourites: [],
-        otp:request.body.otp,
-        verified:false,
+        otp: request.body.otp,
+        verified: false,
       });
 
       // save the new user
@@ -148,145 +148,154 @@ app.post("/forgotpassword", (request, response) => {
 
       // save the new user
       User
-        .updateOne({ email: request.body.email }, { password: hashedPassword })
+        .updateOne({ email: request.body.email }, { password: hashedPassword, verified: false })
         // return success if the new user is added to the database successfully
         .then((result) => {
-          response.status(201).send({
-            message: "User Created Successfully",
-            result,
+          User.findOne({ email: request.body.email })
+
+            // if email exists
+            .then((user) => {
+              response.status(201).send({
+                message: "User Created Successfully",
+                otp: user.otp,
+                result,
+              });
+            })
+            // catch erroe if the new user wasn't added successfully to the database
+            .catch((error) => {
+              response.status(500).send({
+                message: "Error creating user",
+                error,
+              });
+            });
           });
         })
-        // catch erroe if the new user wasn't added successfully to the database
-        .catch((error) => {
+        // catch error if the password hash isn't successful
+        .catch((e) => {
           response.status(500).send({
-            message: "Error creating user",
-            error,
+            message: "Password was not hashed successfully",
+            e,
           });
         });
-    })
-    // catch error if the password hash isn't successful
-    .catch((e) => {
-      response.status(500).send({
-        message: "Password was not hashed successfully",
-        e,
-      });
     });
-});
 
-// Edit Profile
+  // Edit Profile
 
-app.post("/editprofile", (request, response) => {
-  // hash the password
-  bcrypt
-    .hash(request.body.password, 10)
-    .then((hashedPassword) => {
-      // create a new user instance and collect the data
+  app.post("/editprofile", (request, response) => {
+    // hash the password
+    bcrypt
+      .hash(request.body.password, 10)
+      .then((hashedPassword) => {
+        // create a new user instance and collect the data
 
-      // save the new user
-      User
-        .updateOne({ email: request.body.email }, { password: hashedPassword, usertype: request.usertype })
-        // return success if the new user is added to the database successfully
-        .then((result) => {
-          response.status(201).send({
-            message: "User Created Successfully",
-            result,
+        // save the new user
+        User
+          .updateOne({ email: request.body.email }, { password: hashedPassword, usertype: request.usertype })
+          // return success if the new user is added to the database successfully
+          .then((result) => {
+            response.status(201).send({
+              message: "User Created Successfully",
+              result,
+            });
+          })
+          // catch erroe if the new user wasn't added successfully to the database
+          .catch((error) => {
+            response.status(501).send({
+              message: "Error creating user",
+              error,
+            });
           });
-        })
-        // catch erroe if the new user wasn't added successfully to the database
-        .catch((error) => {
-          response.status(501).send({
-            message: "Error creating user",
-            error,
-          });
+      })
+      // catch error if the password hash isn't successful
+      .catch((e) => {
+        response.status(500).send({
+          message: "Password was not hashed successfully",
+          e,
         });
-    })
-    // catch error if the password hash isn't successful
-    .catch((e) => {
-      response.status(500).send({
-        message: "Password was not hashed successfully",
-        e,
       });
-    });
-});
+  });
 
-// login endpoint
-app.post("/addfavourite", (request, response) => {
-  // check if email exists
-  User.findOne({ email: request.body.email })
+  // login endpoint
+  app.post("/addfavourite", (request, response) => {
+    // check if email exists
+    User.findOne({ email: request.body.email })
 
-    // if email exists
-    .then((user) => {
-      User
-        .updateOne({ email: request.body.email }, { $push: { favourites: { origin: request.body.origin, destination: request.body.destination } } })
-        // return success if the new user is added to the database successfully
-        .then((result) => {
-          response.status(201).send({
-            message: "Favourite Created Successfully",
-            favourites: user.favourites,
-            result,
+      // if email exists
+      .then((user) => {
+        User
+          .updateOne({ email: request.body.email }, { $push: { favourites: { origin: request.body.origin, destination: request.body.destination } } })
+          // return success if the new user is added to the database successfully
+          .then((result) => {
+            User.findOne({ email: request.body.email })
+              .then((user) => {
+                response.status(201).send({
+                  message: "Favourite Created Successfully",
+                  favourites: user.favourites,
+                  result,
+                });
+              });
+          })
+          // catch erroe if the new user wasn't added successfully to the database
+          .catch((error) => {
+            response.status(501).send({
+              message: "Error creating user",
+              error,
+            });
           });
-        })
-        // catch erroe if the new user wasn't added successfully to the database
-        .catch((error) => {
-          response.status(501).send({
-            message: "Error creating user",
-            error,
-          });
+
+      })
+      // catch error if email does not exist
+      .catch((e) => {
+        response.status(404).send({
+          message: "Email not found",
+          e,
         });
-
-    })
-    // catch error if email does not exist
-    .catch((e) => {
-      response.status(404).send({
-        message: "Email not found",
-        e,
       });
-    });
-});
+  });
 
 
-app.post("/verify", (request, response) => {
-  // check if email exists
-  User.findOne({ email: request.body.email })
+  app.post("/verify", (request, response) => {
+    // check if email exists
+    User.findOne({ email: request.body.email })
 
-    // if email exists
-    .then((user) => {
-      if(user.otp == request.body.otp)
-      User
-        .updateOne({ email: request.body.email }, {verified:true})
-        // return success if the new user is added to the database successfully
-        .then((result) => {
-          response.status(201).send({
-            message: "Verified Successfully",
-            favourites: user.favourites,
-            result,
-          });
-        })
-        // catch erroe if the new user wasn't added successfully to the database
-        .catch((error) => {
-          response.status(501).send({
-            message: "Error creating user",
-            error,
-          });
+      // if email exists
+      .then((user) => {
+        if (user.otp == request.body.otp)
+          User
+            .updateOne({ email: request.body.email }, { verified: true })
+            // return success if the new user is added to the database successfully
+            .then((result) => {
+              response.status(201).send({
+                message: "Verified Successfully",
+                favourites: user.favourites,
+                result,
+              });
+            })
+            // catch erroe if the new user wasn't added successfully to the database
+            .catch((error) => {
+              response.status(501).send({
+                message: "Error creating user",
+                error,
+              });
+            });
+
+      })
+      // catch error if email does not exist
+      .catch((e) => {
+        response.status(404).send({
+          message: "Email not found",
+          e,
         });
-
-    })
-    // catch error if email does not exist
-    .catch((e) => {
-      response.status(404).send({
-        message: "Email not found",
-        e,
       });
-    });
-});
-// free endpoint
-app.get("/free-endpoint", (request, response) => {
-  response.json({ message: "You are free to access me anytime" });
-});
+  });
+  // free endpoint
+  app.get("/free-endpoint", (request, response) => {
+    response.json({ message: "You are free to access me anytime" });
+  });
 
-// authentication endpoint
-app.get("/auth-endpoint", auth, (request, response) => {
-  response.send({ message: "You are authorized to access me" });
-});
+  // authentication endpoint
+  app.get("/auth-endpoint", auth, (request, response) => {
+    response.send({ message: "You are authorized to access me" });
+  });
 
-module.exports = app;
+  module.exports = app;

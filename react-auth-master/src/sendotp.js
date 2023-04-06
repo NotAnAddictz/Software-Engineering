@@ -11,6 +11,7 @@ import {
     FormLabel,
     VStack,
     Select,
+    Text,
 } from '@chakra-ui/react'
 
 
@@ -50,6 +51,9 @@ export default function Sendotp() {
             <Center>
                 <Box position='relative' h='70%' w='30%' borderWidth='1px' borderRadius='12px' p={4} bg='gray.700' >
                     <VStack spacing={5} h='100%' alignItems='center' >
+                        <Text>
+                            An email has been sent to your inbox with the OTP.
+                        </Text>
                         {/* email */}
                         <Input type='password' name="confirmpassword" placeholder="Confirm OTP" onChange={(e) => setOtp(e.target.value)} />
                         {/* submit button */}

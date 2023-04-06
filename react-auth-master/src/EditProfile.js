@@ -10,6 +10,7 @@ import {
   FormControl,
   FormLabel,
   VStack,
+  Select,
 } from '@chakra-ui/react'
 
 export default function EditProfile() {
@@ -21,12 +22,13 @@ export default function EditProfile() {
   const [samepass, setSamePass] = useState(1);
   const [passerr, setPassErr] = useState(1);
   const email = localStorage.getItem("useremail");
+  const [usererr, setUsererr] = useState(0);
 
 
   const handleSubmit = (e) => {
     // prevent the form from refreshing the whole page
     e.preventDefault();
-
+    var x = document.getElementById("newselect");
     // set configurations
     const configuration = {
       method: "post",
@@ -34,7 +36,7 @@ export default function EditProfile() {
       data: {
         email,
         password,
-        usertype,
+        usertype: x.value,
       },
     };
 
@@ -68,6 +70,9 @@ export default function EditProfile() {
     }
   };
 
+  function handleSelect() {
+    setUsererr(1)
+  }
   
   return (
     <Box position='relative' h='100%' w='100%'>
@@ -92,24 +97,24 @@ export default function EditProfile() {
             ) : (
               <p className="text-danger">Passwords do not match</p>
             )}
-            <DropdownButton id="dropdown-basic-button" title="User Type">
-              <Dropdown.Item onClick={(e) => setUsertype("Adult")}>Adult</Dropdown.Item>
-              <Dropdown.Item onClick={(e) => setUsertype("Senior citizen")}>Senior citizen</Dropdown.Item>
-              <Dropdown.Item onClick={(e) => setUsertype("Student")}>Student</Dropdown.Item>
-              <Dropdown.Item onClick={(e) => setUsertype("Workfare transport concession")}>Workfare transport concession </Dropdown.Item>
-              <Dropdown.Item onClick={(e) => setUsertype("Persons with diabilities")}>Persons with disabilities</Dropdown.Item>
-            </DropdownButton>
+            <Select placeholder='Select User Type' bg="teal" id='newselect' onChange={handleSelect}>
+              <option value='Adult' >Adult</option>
+              <option value='Senior citizen'>Senior citizen</option>
+              <option value='Student'>Student</option>
+              <option value='Workfare transport concession'>Student</option>
+              <option value='Persons with diabilities'>Persons with disabilities</option>
+            </Select>
             {/* submit button */}
-            <Button colorScheme='pink' type='submit' onClick={(e) => handleSubmit(e)}>
-              Register
+            <Button colorScheme='pink' type='submit' isDisabled={!samepass || !passerr || !usererr}  onClick={(e) => handleSubmit(e)}>
+              Confirm
             </Button>
 
 
             {/* display success message */}
             {register ? (
-              <p className="text-success">You Are Registered Successfully</p>
+              <p className="text-success">Details changed Successfully</p>
             ) : (
-              <p className="text-danger">You Are Not Registered</p>
+              <p className="text-danger"></p>
             )}
           </VStack>
         </Box>
