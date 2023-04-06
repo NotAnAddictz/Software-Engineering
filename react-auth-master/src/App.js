@@ -60,7 +60,7 @@ function App() {
     <>
       <Box position='relative' w='100%' paddingRight="2" paddingLeft="2">
         <HStack w="100%" h="100px" alignContent='right'>
-          {location.pathname !== "/" && location.pathname !== "/register" && location.pathname !== "/forgotpw" &&
+          {location.pathname !== "/" && location.pathname !== "/register" && location.pathname !== "/forgotpw" && location.pathname !== "/editprofile" &&
             <Button colorScheme='teal' type='submit' onClick={editprofile}>
               Edit Profile
             </Button>

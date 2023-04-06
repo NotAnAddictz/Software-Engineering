@@ -14,14 +14,13 @@ import {
 
 export default function EditProfile() {
   // initial state
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
   const [usertype, setUsertype] = useState("");
   const [register, setRegister] = useState(false);
-  const [samepass, setSamePass] = useState();
-  const [emailerr, setEmailErr] = useState();
-  const [passerr, setPassErr] = useState();
+  const [samepass, setSamePass] = useState(1);
+  const [passerr, setPassErr] = useState(1);
+  const email = localStorage.getItem("useremail");
 
 
   const handleSubmit = (e) => {
@@ -31,7 +30,7 @@ export default function EditProfile() {
     // set configurations
     const configuration = {
       method: "post",
-      url: "http://localhost:3000/register",
+      url: "http://localhost:3000/editprofile",
       data: {
         email,
         password,
@@ -51,18 +50,9 @@ export default function EditProfile() {
     
   };
 
-  const handleChange = (e) => {
-    setEmail(e.target.value)
-    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(e.target.value)){
-      setEmailErr(0)
-    }else{
-      setEmailErr(1)
-    }
-  };
-
   const handlePassword = (e) => {
     setPassword(e.target.value)
-    if (!/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/i.test(e.target.value)){
+    if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/i.test(e.target.value)){
       setPassErr(0)
     }else{
       setPassErr(1)
@@ -84,16 +74,6 @@ export default function EditProfile() {
       <Center>
         <Box position='relative' h='70%' w='30%' borderWidth='1px' borderRadius='12px' p={4} bg='gray.700' >
           <VStack spacing={5} h='100%' alignItems='center' >
-            {/* email */}
-            <FormLabel>Email address</FormLabel>
-            <FormControl>
-              <Input type='email' name="email" value={email} placeholder="Enter email" onChange={(e) => handleChange(e)} />
-            </FormControl>
-            {emailerr ? (
-              <p className="text-success"></p>
-            ) : (
-              <p className="text-danger">Invalid Email</p>
-            )}
             {/* password */}
             <FormLabel>Password</FormLabel>
             <FormControl>
