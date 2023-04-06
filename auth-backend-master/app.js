@@ -46,6 +46,7 @@ app.post("/register", (request, response) => {
         email: request.body.email,
         password: hashedPassword,
         usertype: request.body.usertype,
+        favourites: [],
       });
 
       // save the new user
@@ -85,13 +86,12 @@ app.post("/login", (request, response) => {
       // compare the password entered and the hashed password found
       bcrypt
         .compare(request.body.password, user.password)
-
         // if the passwords match
         .then((passwordCheck) => {
 
           // check if password matches
           if (!passwordCheck) {
-            return response.status(400).send({
+            return response.status(406).send({
               message: "Passwords does not match",
               error,
             });
@@ -106,12 +106,12 @@ app.post("/login", (request, response) => {
             "RANDOM-TOKEN",
             { expiresIn: "24h" }
           );
-
           //   return success response
           response.status(200).send({
             message: "Login Successful",
             email: user.email,
             usertype: user.usertype,
+            favourites: user.favourites,
             token,
           });
         })
@@ -136,74 +136,108 @@ app.post("/login", (request, response) => {
 
 app.post("/forgotpassword", (request, response) => {
   // hash the password
-    bcrypt
-      .hash(request.body.password, 10)
-      .then((hashedPassword) => {
-        // create a new user instance and collect the data
-  
-        // save the new user
-        User
-          .updateOne({email:request.body.email},{password: hashedPassword })
-          // return success if the new user is added to the database successfully
-          .then((result) => {
-            response.status(201).send({
-              message: "User Created Successfully",
-              result,
-            });
-          })
-          // catch erroe if the new user wasn't added successfully to the database
-          .catch((error) => {
-            response.status(500).send({
-              message: "Error creating user",
-              error,
-            });
-          });
-      })
-      // catch error if the password hash isn't successful
-      .catch((e) => {
-        response.status(500).send({
-          message: "Password was not hashed successfully",
-          e,
-        });
-      });
-  });
+  bcrypt
+    .hash(request.body.password, 10)
+    .then((hashedPassword) => {
+      // create a new user instance and collect the data
 
-  // Edit Profile
+      // save the new user
+      User
+        .updateOne({ email: request.body.email }, { password: hashedPassword })
+        // return success if the new user is added to the database successfully
+        .then((result) => {
+          response.status(201).send({
+            message: "User Created Successfully",
+            result,
+          });
+        })
+        // catch erroe if the new user wasn't added successfully to the database
+        .catch((error) => {
+          response.status(500).send({
+            message: "Error creating user",
+            error,
+          });
+        });
+    })
+    // catch error if the password hash isn't successful
+    .catch((e) => {
+      response.status(500).send({
+        message: "Password was not hashed successfully",
+        e,
+      });
+    });
+});
+
+// Edit Profile
 
 app.post("/editprofile", (request, response) => {
   // hash the password
-    bcrypt
-      .hash(request.body.password, 10)
-      .then((hashedPassword) => {
-        // create a new user instance and collect the data
-  
-        // save the new user
-        User
-          .updateOne({email:request.body.email},{password: hashedPassword , usertype:request.usertype})
-          // return success if the new user is added to the database successfully
-          .then((result) => {
-            response.status(201).send({
-              message: "User Created Successfully",
-              result,
-            });
-          })
-          // catch erroe if the new user wasn't added successfully to the database
-          .catch((error) => {
-            response.status(501).send({
-              message: "Error creating user",
-              error,
-            });
-          });
-      })
-      // catch error if the password hash isn't successful
-      .catch((e) => {
-        response.status(500).send({
-          message: "Password was not hashed successfully",
-          e,
-        });
-      });
-  });
+  bcrypt
+    .hash(request.body.password, 10)
+    .then((hashedPassword) => {
+      // create a new user instance and collect the data
 
+      // save the new user
+      User
+        .updateOne({ email: request.body.email }, { password: hashedPassword, usertype: request.usertype })
+        // return success if the new user is added to the database successfully
+        .then((result) => {
+          response.status(201).send({
+            message: "User Created Successfully",
+            result,
+          });
+        })
+        // catch erroe if the new user wasn't added successfully to the database
+        .catch((error) => {
+          response.status(501).send({
+            message: "Error creating user",
+            error,
+          });
+        });
+    })
+    // catch error if the password hash isn't successful
+    .catch((e) => {
+      response.status(500).send({
+        message: "Password was not hashed successfully",
+        e,
+      });
+    });
+});
+
+// login endpoint
+app.post("/addfavourite", (request, response) => {
+  // check if email exists
+  User.findOne({ email: request.body.email })
+
+    // if email exists
+    .then((user) => {
+      User
+        .updateOne({ email: request.body.email }, { $push: { favourites: { origin: request.body.origin, destination: request.body.destination } } })
+        // return success if the new user is added to the database successfully
+        .then((result) => {
+          response.status(201).send({
+            message: "Favourite Created Successfully",
+            favourites: user.favourites,
+            result,
+          });
+        })
+        // catch erroe if the new user wasn't added successfully to the database
+        .catch((error) => {
+          response.status(501).send({
+            message: "Error creating user",
+            error,
+          });
+        });
+
+    })
+    // catch error if email does not exist
+    .catch((e) => {
+      response.status(404).send({
+        message: "Email not found",
+        e,
+      });
+    });
+});
 // free endpoint
 app.get("/free-endpoint", (request, response) => {
   response.json({ message: "You are free to access me anytime" });

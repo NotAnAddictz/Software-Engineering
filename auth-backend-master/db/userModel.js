@@ -20,6 +20,9 @@ const UserSchema = new mongoose.Schema({
     required: [true, "Please provide a user type!"],
     unique: false,
   },
+  favourites: [{
+    origin: String, destination: String
+    }],
 });
 
 // export UserSchema

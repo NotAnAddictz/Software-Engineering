@@ -20,10 +20,13 @@ import {
   HStack,
   IconButton,
   Input,
+  Select,
   SkeletonText,
   Text,
 } from '@chakra-ui/react'
-import { FaLocationArrow, FaTimes, FaArrowsAltH } from 'react-icons/fa'
+
+import { FaLocationArrow, FaTimes, FaArrowsAltH, FaPlus } from 'react-icons/fa'
+import { json } from "react-router-dom";
 
 const center = { lat: 1.3500883722383386, lng: 103.81306869057929 }
 const places = ['places']
@@ -34,6 +37,7 @@ const token = cookies.get("TOKEN");
 export default function AuthComponent() {
   const [markers, setMarkers] = useState([{ position: { lat: 41.881832, lng: -87.623177 } }])
   const userdata = localStorage.getItem("user");
+  var favourites = JSON.parse(localStorage.getItem("favourites"));
   const [time_hour, setHour] = useState("")
   const [time_min, setMin] = useState("")
   const [time_date, setDate] = useState("")
@@ -48,14 +52,12 @@ export default function AuthComponent() {
   const [duration, setDuration] = useState('')
   const [fare, setFare] = useState('')
   const [directions, setDirections] = useState('')
-  const [map_public, setMapPublic] = useState(/** @type google.maps.Map */(null))
   const [directionsResponse_public, setDirectionsResponsePublic] = useState(null)
   const [distance_public, setDistancePublic] = useState([])
   const [duration_public, setDurationPublic] = useState('')
   const [fare_public, setFarePublic] = useState('')
   const [directions_public, setDirectionsPublic] = useState('')
   const [usertypequery, setUserTypeQuery] = useState('')
-  const [timequery, setTimeQuery] = useState('')
 
   /** @type React.MutableRefObject<HTMLInputElement> */
   const originRef = useRef()
@@ -71,6 +73,9 @@ export default function AuthComponent() {
 
   // useEffect automatically executes once the page is fully loaded
   useEffect(() => {
+    console.log(favourites)
+    favourites = JSON.parse(localStorage.getItem("favourites"));
+
     // set configurations for the API call here
     const configuration = {
       method: "get",
@@ -140,13 +145,6 @@ export default function AuthComponent() {
   function strip(html) {
     let doc = new DOMParser().parseFromString(html, 'text/html');
     return doc.body.textContent || "";
-  }
-
-  const handleSubmit = () => {
-    // destroy the cookie
-    cookies.remove("TOKEN", { path: "/" });
-    // redirect user to the landing page
-    window.location.href = "/";
   }
 
   async function calculateRoutes() {
@@ -280,6 +278,32 @@ export default function AuthComponent() {
     setDirectionsPublic(strip(prev))
   }
 
+  const addfavourite = (e) => {
+    e.preventDefault();
+    // set configurations
+    const configuration = {
+      method: "post",
+      url: "http://localhost:3000/addfavourite",
+      data: {
+        email: localStorage.getItem("useremail"),
+        origin: originRef.current.value,
+        destination: destiantionRef.current.value,
+      },
+    };
+
+    // make the API call
+    axios(configuration)
+      .then((result) => {
+        // redirect user to the auth page
+        localStorage.setItem("favourites", JSON.stringify(result.data.favourites));;
+        favourites = JSON.parse(localStorage.getItem("favourites"));
+
+      })
+      .catch((error) => {
+        error = new Error();
+      });
+  }
+
   function clearRoute() {
     setDirectionsResponse(null)
     setDistance('')
@@ -330,13 +354,11 @@ export default function AuthComponent() {
     window.location.href = "/publictrans"
   }
 
-  // logout
-  const logout = () => {
-    // destroy the cookie
-    cookies.remove("TOKEN", { path: "/" });
-    // redirect user to the landing page
-    localStorage.removeItem("user")
-    window.location.href = "/";
+  function handleselect(){
+    var e = document.getElementById("ddlView");
+    console.log(e.options[e.selectedIndex].text )
+    originRef.current.value = e.options[e.selectedIndex].text.split("->")[0]
+    destiantionRef.current.value = e.options[e.selectedIndex].text.split("->")[1]
   }
 
   const { isLoaded } = useJsApiLoader({
@@ -401,10 +423,10 @@ export default function AuthComponent() {
             </Autocomplete>
           </Box>
           <IconButton
-              aria-label='center back'
-              icon={<FaArrowsAltH />}
-              onClick={swaplocation}
-            />
+            aria-label='center back'
+            icon={<FaArrowsAltH />}
+            onClick={swaplocation}
+          />
           <Box flexGrow={1}>
             <Autocomplete
               options={{
@@ -421,6 +443,9 @@ export default function AuthComponent() {
           </Box>
 
           <ButtonGroup>
+            <Button colorScheme='pink' leftIcon={<FaPlus />} onClick={(e) => addfavourite(e)}>
+              Favourite
+            </Button>
             <Button colorScheme='pink' type='submit' onClick={calculateRoutes}>
               Calculate Route
             </Button>
@@ -442,6 +467,9 @@ export default function AuthComponent() {
 
         </HStack>
         <br />
+        <Select placeholder='Use Favourites' bg="teal" id='ddlView' onChange={handleselect}>
+          {favourites.map((Favourite) => <option key={Favourite._id} value={Favourite.origin}>{Favourite.origin} -{'>'} {Favourite.destination}</option>)}
+        </Select>
       </Box>
 
       <Popup anchor={anchor.current} show={show} popupClass={"popup-content"}>

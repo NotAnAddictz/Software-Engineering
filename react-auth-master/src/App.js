@@ -39,6 +39,7 @@ const logout = () => {
   // redirect user to the landing page
   localStorage.removeItem("user")
   localStorage.removeItem("Taxi_Directions")
+  localStorage.removeItem("favourites")
   localStorage.removeItem("Markers")
   localStorage.removeItem("Price")
   localStorage.removeItem("Distance")

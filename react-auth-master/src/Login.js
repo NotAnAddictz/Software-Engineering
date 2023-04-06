@@ -46,6 +46,7 @@ export default function Login({ setUserData }) {
         setUsertype(result.data.usertype)
         localStorage.setItem("user", result.data.usertype);
         localStorage.setItem("useremail", result.data.email);
+        localStorage.setItem("favourites", JSON.stringify(result.data.favourites));
         setLogin(true);
         window.location.href = "/auth";
 

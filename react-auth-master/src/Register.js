@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import axios from "axios";
@@ -10,6 +10,7 @@ import {
   FormControl,
   FormLabel,
   VStack,
+  Select,
 } from '@chakra-ui/react'
 
 export default function Register() {
@@ -27,7 +28,6 @@ export default function Register() {
   const handleSubmit = (e) => {
     // prevent the form from refreshing the whole page
     e.preventDefault();
-
     // set configurations
     const configuration = {
       method: "post",
@@ -35,7 +35,7 @@ export default function Register() {
       data: {
         email,
         password,
-        usertype,
+        usertype : e.value,
       },
     };
 
@@ -43,42 +43,43 @@ export default function Register() {
     axios(configuration)
       .then((result) => {
         setRegister(true);
-        window.location.href ="/"
+        window.location.href = "/"
       })
       .catch((error) => {
         error = new Error();
       });
-    
+
   };
 
   const handleChange = (e) => {
     setEmail(e.target.value)
-    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(e.target.value)){
+    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(e.target.value)) {
       setEmailErr(0)
-    }else{
+    } else {
       setEmailErr(1)
     }
   };
 
   const handlePassword = (e) => {
     setPassword(e.target.value)
-    if (!/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/i.test(e.target.value)){
+    if (!/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/i.test(e.target.value)) {
       setPassErr(0)
-    }else{
+    } else {
       setPassErr(1)
     }
   };
 
   const handleCfmPassword = (e) => {
     setConfirmPassword(e.target.value)
-    if(password === e.target.value){
+    if (password === e.target.value) {
       setSamePass(1);
-    }else{
+    } else {
       setSamePass(0);
     }
   };
 
   
+
   return (
     <Box position='relative' h='100%' w='100%'>
       <Center>
@@ -112,13 +113,13 @@ export default function Register() {
             ) : (
               <p className="text-danger">Passwords do not match</p>
             )}
-            <DropdownButton id="dropdown-basic-button" title="User Type">
-              <Dropdown.Item onClick={(e) => setUsertype("Adult")}>Adult</Dropdown.Item>
-              <Dropdown.Item onClick={(e) => setUsertype("Senior citizen")}>Senior citizen</Dropdown.Item>
-              <Dropdown.Item onClick={(e) => setUsertype("Student")}>Student</Dropdown.Item>
-              <Dropdown.Item onClick={(e) => setUsertype("Workfare transport concession")}>Workfare transport concession </Dropdown.Item>
-              <Dropdown.Item onClick={(e) => setUsertype("Persons with diabilities")}>Persons with disabilities</Dropdown.Item>
-            </DropdownButton>
+            <Select placeholder='Select User Type' bg="teal" id='ddlViewBy'>
+              <option value='Adult' >Adult</option>
+              <option value='Senior citizen'>Senior citizen</option>
+              <option value='Student'>Student</option>
+              <option value='Workfare transport concession'>Student</option>
+              <option value='Persons with diabilities'>Persons with disabilities</option>
+            </Select>
             {/* submit button */}
             <Button colorScheme='pink' type='submit' onClick={(e) => handleSubmit(e)}>
               Register
