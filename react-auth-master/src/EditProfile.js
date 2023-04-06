@@ -101,7 +101,7 @@ export default function EditProfile() {
               <option value='Adult' >Adult</option>
               <option value='Senior citizen'>Senior citizen</option>
               <option value='Student'>Student</option>
-              <option value='Workfare transport concession'>Student</option>
+              <option value='Workfare transport concession'>Workfare transport concession</option>
               <option value='Persons with diabilities'>Persons with disabilities</option>
             </Select>
             {/* submit button */}

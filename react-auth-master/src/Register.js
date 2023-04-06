@@ -123,7 +123,7 @@ export default function Register() {
             {passerr ? (
               <p className="text-success"></p>
             ) : (
-              <p className="text-danger">Password should contain atleast one number and one special character</p>
+              <p className="text-danger">Password should contain atleast one number, one uppercase and one special character</p>
             )}
             <FormControl>
               <Input type='password' name="confirmpassword" value={confirmpassword} placeholder="Confirm Password" onChange={(e) => handleCfmPassword(e)} />
@@ -137,7 +137,7 @@ export default function Register() {
               <option value='Adult' >Adult</option>
               <option value='Senior citizen'>Senior citizen</option>
               <option value='Student'>Student</option>
-              <option value='Workfare transport concession'>Student</option>
+              <option value='Workfare transport concession'>Workfare transport concession</option>
               <option value='Persons with diabilities'>Persons with disabilities</option>
             </Select>
             {/* submit button */}
