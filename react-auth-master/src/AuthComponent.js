@@ -556,7 +556,6 @@ export default function AuthComponent() {
               <Button colorScheme='blue' type='submit' onClick={handlePublicTransport}>
                 Public Transport
               </Button>
-              <Text>isertype: {usertypequery} </Text>
             </HStack>
           </Flex>
         </Box>
