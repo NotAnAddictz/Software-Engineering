@@ -25,8 +25,10 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
   const [msg, setMsg] = useState("");
+  const [btnclick, setBtnClick] = useState(false);
 
   const handleSubmit = (e) => {
+    setBtnClick(true)
     // prevent the form from refreshing the whole page
     e.preventDefault();
 
@@ -67,9 +69,9 @@ export default function Login() {
 
         console.log(error)
         setMsg("Email or Password is incorrect!")
+        setBtnClick(false)
         error = new Error();
       });
-
   };
 
   function handleForgotPassword() {
@@ -105,7 +107,7 @@ export default function Login() {
               </FormControl>
 
               {/* submit button */}
-              <Button w='100%' colorScheme='pink' type='submit' onClick={(e) => handleSubmit(e)}>
+              <Button w='100%' colorScheme='pink' isLoading={btnclick} type='submit' onClick={(e) => handleSubmit(e)}>
                 Login
               </Button>
 

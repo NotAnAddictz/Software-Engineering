@@ -21,9 +21,10 @@ export default function ForgotPassword() {
   const [samepass, setSamePass] = useState(1);
   const [emailerr, setEmailErr] = useState(1);
   const [passerr, setPassErr] = useState(1);
-
+  const [btnclick, setBtnClick] = useState(false);
 
   const handleSubmit = (e) => {
+    setBtnClick(true)
     // prevent the form from refreshing the whole page
     e.preventDefault();
 
@@ -52,6 +53,7 @@ export default function ForgotPassword() {
         });
       })
       .catch((error) => {
+        setBtnClick(false)
         error = new Error();
       });
     
@@ -120,7 +122,7 @@ export default function ForgotPassword() {
             )}
     
             {/* submit button */}
-            <Button colorScheme='pink' type='submit' onClick={(e) => handleSubmit(e)}>
+            <Button colorScheme='pink' type='submit' isLoading={btnclick} isDisabled={!samepass || !passerr || !emailerr} onClick={(e) => handleSubmit(e)}>
               Reset Password
             </Button>
 

@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import axios from "axios";
 import {
   Box,
@@ -22,15 +20,16 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
-  const [usertype, setUsertype] = useState("");
   const [register, setRegister] = useState(false);
   const [samepass, setSamePass] = useState(1);
   const [emailerr, setEmailErr] = useState(1);
   const [passerr, setPassErr] = useState(1);
   const [usererr, setUsererr] = useState(0);
-  const userdata = localStorage.getItem("user");
   const [msg, setMsg] = useState("");
+  const [btnclick, setBtnClick] = useState(false);
+
   const handleSubmit = (e) => {
+    setBtnClick(true)
     var x = document.getElementById("ddlViewBy");
 
     // prevent the form from refreshing the whole page
@@ -63,6 +62,7 @@ export default function Register() {
         setMsg("")
       })
       .catch((error) => {
+        setBtnClick(false)
         setMsg("Email Already Exists!")
         error = new Error();
       });
@@ -141,7 +141,7 @@ export default function Register() {
               <option value='Persons with diabilities'>Persons with disabilities</option>
             </Select>
             {/* submit button */}
-            <Button colorScheme='pink' type='submit' w='100%' isDisabled={!samepass || !passerr || !emailerr || !usererr} onClick={(e) => handleSubmit(e)}>
+            <Button colorScheme='pink' type='submit' w='100%' isDisabled={!samepass || !passerr || !emailerr || !usererr} isLoading={btnclick} onClick={(e) => handleSubmit(e)}>
               Register
             </Button>
 
