@@ -9,6 +9,7 @@ import {
   FormControl,
   FormLabel,
   VStack,
+  Text,
 } from '@chakra-ui/react'
 
 export default function ForgotPassword() {
@@ -93,6 +94,9 @@ export default function ForgotPassword() {
         <Box position='relative' h='70%' w='30%' borderWidth='1px' borderRadius='12px' p={4} bg='gray.700' >
           <VStack spacing={5} h='100%' alignItems='center' >
             {/* email */}
+            <Text as='b' fontSize='3xl'>
+              Forgot Password
+            </Text>
             <FormLabel>Email address</FormLabel>
             <FormControl>
               <Input type='email' name="email" value={email} placeholder="Enter email" onChange={(e) => handleChange(e)} />
@@ -122,7 +126,7 @@ export default function ForgotPassword() {
             )}
     
             {/* submit button */}
-            <Button colorScheme='pink' type='submit' isLoading={btnclick} isDisabled={!samepass || !passerr || !emailerr} onClick={(e) => handleSubmit(e)}>
+            <Button w='100%' colorScheme='pink' type='submit' isLoading={btnclick} isDisabled={!samepass || !passerr || !emailerr} onClick={(e) => handleSubmit(e)}>
               Reset Password
             </Button>
 

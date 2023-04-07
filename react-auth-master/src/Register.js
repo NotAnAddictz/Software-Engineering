@@ -105,6 +105,9 @@ export default function Register() {
       <Center>
         <Box position='relative' h='70%' w='30%' borderWidth='1px' borderRadius='12px' p={4} bg='gray.700' >
           <VStack spacing={5} h='100%' alignItems='center' >
+            <Text as='b' fontSize='3xl'>
+              Register
+            </Text>
             {/* email */}
             <FormLabel>Email address</FormLabel>
             <FormControl>

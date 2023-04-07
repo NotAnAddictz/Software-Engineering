@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import axios from "axios";
@@ -11,6 +11,7 @@ import {
   FormLabel,
   VStack,
   Select,
+  Text,
 } from '@chakra-ui/react'
 
 export default function EditProfile() {
@@ -43,28 +44,28 @@ export default function EditProfile() {
     axios(configuration)
       .then((result) => {
         localStorage.setItem("user", x.value);
-        window.location.href ="/auth"
+        window.location.href = "/auth"
       })
       .catch((error) => {
         error = new Error();
       });
-    
+
   };
 
   const handlePassword = (e) => {
     setPassword(e.target.value)
-    if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/i.test(e.target.value)){
+    if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/i.test(e.target.value)) {
       setPassErr(0)
-    }else{
+    } else {
       setPassErr(1)
     }
   };
 
   const handleCfmPassword = (e) => {
     setConfirmPassword(e.target.value)
-    if(password === e.target.value){
+    if (password === e.target.value) {
       setSamePass(1);
-    }else{
+    } else {
       setSamePass(0);
     }
   };
@@ -72,12 +73,15 @@ export default function EditProfile() {
   function handleSelect() {
     setUsererr(1)
   }
-  
+
   return (
     <Box position='relative' h='100%' w='100%'>
       <Center>
         <Box position='relative' h='70%' w='30%' borderWidth='1px' borderRadius='12px' p={4} bg='gray.700' >
           <VStack spacing={5} h='100%' alignItems='center' >
+            <Text as='b' fontSize='3xl'>
+              Edit Profile
+            </Text>
             {/* password */}
             <FormLabel>Password</FormLabel>
             <FormControl>
@@ -104,7 +108,7 @@ export default function EditProfile() {
               <option value='Persons with diabilities'>Persons with disabilities</option>
             </Select>
             {/* submit button */}
-            <Button colorScheme='pink' type='submit' isDisabled={!samepass || !passerr || !usererr}  onClick={(e) => handleSubmit(e)}>
+            <Button colorScheme='pink' type='submit' isDisabled={!samepass || !passerr || !usererr} onClick={(e) => handleSubmit(e)}>
               Confirm
             </Button>
 
