@@ -108,7 +108,7 @@ export default function Register() {
             {/* email */}
             <FormLabel>Email address</FormLabel>
             <FormControl>
-              <Input type='email' name="email" value={email} placeholder="Enter email" onChange={(e) => handleChange(e)} />
+              <Input type='email' name="email" value={email} placeholder="Enter email" onChange={(e) => handleChange(e)} data-testid="reg-email" />
             </FormControl>
             {emailerr ? (
               <p className="text-success"></p>
@@ -118,7 +118,7 @@ export default function Register() {
             {/* password */}
             <FormLabel>Password</FormLabel>
             <FormControl>
-              <Input type='password' name="password" value={password} placeholder="Password" onChange={(e) => handlePassword(e)} />
+              <Input type='password' name="password" value={password} placeholder="Password" onChange={(e) => handlePassword(e)} data-testid="reg-password" />
             </FormControl>
             {passerr ? (
               <p className="text-success"></p>
@@ -126,14 +126,14 @@ export default function Register() {
               <p className="text-danger">Password should contain atleast one number, one uppercase and one special character</p>
             )}
             <FormControl>
-              <Input type='password' name="confirmpassword" value={confirmpassword} placeholder="Confirm Password" onChange={(e) => handleCfmPassword(e)} />
+              <Input type='password' name="confirmpassword" value={confirmpassword} placeholder="Confirm Password" onChange={(e) => handleCfmPassword(e)} data-testid="reg-confpassword" />
             </FormControl>
             {samepass ? (
               <p className="text-success"></p>
             ) : (
               <p className="text-danger">Passwords do not match</p>
             )}
-            <Select placeholder='Select User Type' bg="teal" id='ddlViewBy' onChange={handleSelect}>
+            <Select placeholder='Select User Type' bg="teal" id='ddlViewBy' onChange={handleSelect} data-testid="reg-usertype" >
               <option value='Adult' >Adult</option>
               <option value='Senior citizen'>Senior citizen</option>
               <option value='Student'>Student</option>
@@ -141,16 +141,16 @@ export default function Register() {
               <option value='Persons with diabilities'>Persons with disabilities</option>
             </Select>
             {/* submit button */}
-            <Button colorScheme='pink' type='submit' w='100%' isDisabled={!samepass || !passerr || !emailerr || !usererr} isLoading={btnclick} onClick={(e) => handleSubmit(e)}>
+            <Button colorScheme='pink' type='submit' w='100%' isDisabled={!samepass || !passerr || !emailerr || !usererr} isLoading={btnclick} onClick={(e) => handleSubmit(e)} data-testid="reg-button" >
               Register
             </Button>
 
 
             {/* display success message */}
             {register ? (
-              <p className="text-success">You Are Registered Successfully</p>
+              <p className="text-success" data-testid="reg-Reg" >You Are Registered Successfully</p>
             ) : (
-              <p className="text-danger">You Are Not Registered <br /> {msg}</p>
+              <p className="text-danger" data-testid="reg-notReg" >You Are Not Registered <br /> {msg}</p>
             )}
             <Text>
               Already have an account?{' '}
