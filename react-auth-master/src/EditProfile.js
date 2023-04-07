@@ -17,7 +17,6 @@ export default function EditProfile() {
   // initial state
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
-  const [usertype, setUsertype] = useState("");
   const [register, setRegister] = useState(false);
   const [samepass, setSamePass] = useState(1);
   const [passerr, setPassErr] = useState(1);
@@ -43,8 +42,8 @@ export default function EditProfile() {
     // make the API call
     axios(configuration)
       .then((result) => {
-        setRegister(true);
-        window.location.href ="/"
+        localStorage.setItem("user", x.value);
+        window.location.href ="/auth"
       })
       .catch((error) => {
         error = new Error();

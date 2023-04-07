@@ -253,6 +253,44 @@ app.post("/forgotpassword", (request, response) => {
       });
   });
 
+  app.post("/removefavourite", (request, response) => {
+    // check if email exists
+    User.findOne({ email: request.body.email })
+
+      // if email exists
+      .then((user) => {
+        User
+          .updateOne({ email: request.body.email }, { $pull: { favourites: { _id: request.body.id } } })
+          // return success if the new user is added to the database successfully
+          .then((result) => {
+            User.findOne({ email: request.body.email })
+              .then((user) => {
+                response.status(201).send({
+                  message: "Favourite Removed Successfully",
+                  favourites: user.favourites,
+                  result,
+                });
+              });
+          })
+          // catch erroe if the new user wasn't added successfully to the database
+          .catch((error) => {
+            console.log(error)
+            response.status(501).send({
+              message: "Error removing favourite",
+              error,
+            });
+          });
+
+      })
+      // catch error if email does not exist
+      .catch((e) => {
+        console.log(e)
+        response.status(404).send({
+          message: "Email not found",
+          e,
+        });
+      });
+  });
 
   app.post("/verify", (request, response) => {
     // check if email exists

@@ -25,7 +25,7 @@ import {
   Text,
 } from '@chakra-ui/react'
 
-import { FaLocationArrow, FaTimes, FaArrowsAltH, FaPlus } from 'react-icons/fa'
+import { FaLocationArrow, FaTimes, FaArrowsAltH, FaPlus, FaMinus } from 'react-icons/fa'
 
 const center = { lat: 1.3500883722383386, lng: 103.81306869057929 }
 const places = ['places']
@@ -37,7 +37,7 @@ var favourites = JSON.parse(localStorage.getItem("favourites"));
 export default function AuthComponent() {
   const [markers, setMarkers] = useState([{ position: { lat: 41.881832, lng: -87.623177 } }])
   const userdata = localStorage.getItem("user");
-  if(userdata === null){
+  if (userdata === null) {
     window.location.href = "/"
   }
   // var favourites = JSON.parse(localStorage.getItem("favourites"));
@@ -250,11 +250,13 @@ export default function AuthComponent() {
               if (isNaN(distance_lrecord)) {
                 distance_lrecord = 0.0
               }
+              console.log(usertypequery)
               if (distance_record > parseFloat(results.routes[0].legs[0].steps[i].distance.text) && distance_lrecord < parseFloat(results.routes[0].legs[0].steps[i].distance.text)) {
                 if (usertypequery == "Adult") {
                   sum += parseFloat(busrecords[x].adult_card_fare_per_ride)
                 } else if (usertypequery == "Senior citizen") {
                   sum += parseFloat(busrecords[x].senior_citizen_card_fare_per_ride)
+                  console.log("4")
                 } else if (usertypequery == "Student") {
                   sum += parseFloat(busrecords[x].student_card_fare_per_ride)
                 } else if (usertypequery == "Workfare transport concession") {
@@ -283,7 +285,7 @@ export default function AuthComponent() {
   const addfavourite = (e) => {
     // e.preventDefault();
     // set configurations
-    if(originRef.current.value !== ""){
+    if (originRef.current.value !== "") {
 
       const configuration = {
         method: "post",
@@ -294,11 +296,40 @@ export default function AuthComponent() {
           destination: destiantionRef.current.value,
         },
       };
-  
+
       // make the API call
       axios(configuration)
         .then((result) => {
           console.log(result.data.favourites)
+          // redirect user to the auth page
+          localStorage.setItem("favourites", JSON.stringify(result.data.favourites));
+          favourites = JSON.parse(localStorage.getItem("favourites"));
+          window.location.href = "/auth";
+        })
+        .catch((error) => {
+          error = new Error();
+        });
+    }
+  }
+
+  const removefavourite = (e) => {
+    // set configurations
+    var x = document.getElementById("ddlView");
+    console.log(x.options[x.selectedIndex].value)
+    if (originRef.current.value !== "") {
+
+      const configuration = {
+        method: "post",
+        url: "http://localhost:3000/removefavourite",
+        data: {
+          email: localStorage.getItem("useremail"),
+          id: x.options[x.selectedIndex].value,
+        },
+      };
+
+      // make the API call
+      axios(configuration)
+        .then((result) => {
           // redirect user to the auth page
           localStorage.setItem("favourites", JSON.stringify(result.data.favourites));
           favourites = JSON.parse(localStorage.getItem("favourites"));
@@ -360,7 +391,7 @@ export default function AuthComponent() {
     window.location.href = "/publictrans"
   }
 
-  function handleselect(){
+  function handleselect() {
     var e = document.getElementById("ddlView");
     originRef.current.value = e.options[e.selectedIndex].text.split("->")[0]
     destiantionRef.current.value = e.options[e.selectedIndex].text.split("->")[1]
@@ -472,9 +503,14 @@ export default function AuthComponent() {
 
         </HStack>
         <br />
-        <Select placeholder='Use Favourites' bg="teal" id='ddlView' onChange={handleselect}>
-          {favourites.map((Favourite) => <option key={Favourite._id} value={Favourite.origin}>{Favourite.origin} -{'>'} {Favourite.destination}</option>)}
-        </Select>
+        <HStack>
+          <Select placeholder='Use Favourites' bg="teal" id='ddlView' onChange={handleselect}>
+            {favourites.map((Favourite) => <option key={Favourite._id} value={Favourite._id}>{Favourite.origin} -{'>'} {Favourite.destination}</option>)}
+          </Select>
+          <Button colorScheme='pink' leftIcon={<FaMinus />} onClick={(e) => removefavourite(e)} >
+            Remove
+          </Button>
+        </HStack>
       </Box>
 
       <Popup anchor={anchor.current} show={show} popupClass={"popup-content"}>
@@ -520,6 +556,7 @@ export default function AuthComponent() {
               <Button colorScheme='blue' type='submit' onClick={handlePublicTransport}>
                 Public Transport
               </Button>
+              <Text>isertype: {usertypequery} </Text>
             </HStack>
           </Flex>
         </Box>
